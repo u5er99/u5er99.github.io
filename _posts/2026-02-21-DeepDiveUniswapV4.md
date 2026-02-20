@@ -1,12 +1,12 @@
 ---
-title: DeepDive Uniswap V4  # 글 제목
-date: 2026-02-21 00:00:00 +0900 # 작성 시간
-categories: [web3, DEX] # 카테고리
-tags: [web3, uniswap]     # 태그
+title: DeepDive Uniswap V4  ## 글 제목
+date: 2026-02-21 00:00:00 +0900 ## 작성 시간
+categories: [web3, DEX] ## 카테고리
+tags: [web3, uniswap]     ## 태그
 math: true
 ---
 
-# Uniswap V4 아키텍처 딥다이브
+## Uniswap V4 아키텍처 딥다이브
 
 다중 선택: Architecture, DEX, Security
 
@@ -14,7 +14,7 @@ part 3, 4, 5? → hook, swap, liqudity
 
 마지막 security 측면을 조금 다뤄볼까…
 
-# Overview
+## Overview
 
 본 아티클에서는 Uniswap V4의 아키텍처 변화와 새롭게 도입된 핵심 기능들을 상세히 다룬다. 단순한 기능 나열을 넘어, V4가 왜 이러한 구조로 변경되었는지에 대한 설계 의도를 중점적으로 분석한다. 또한, 새로운 기능 구현 시 개발자들이 반드시 고려해야 할 보안 사항과 주의점을 짚어본다.
 
@@ -26,13 +26,13 @@ part 3, 4, 5? → hook, swap, liqudity
 - **Extensibility:** Hook, NoOp
 - **Mechanism:** Tick Bitmap, Liquidity Provision, Swap
 
-# Introduction: V3의 한계와 V4의 등장 배경
+## Introduction: V3의 한계와 V4의 등장 배경
 
 Mr.Juno와 Minbuu가 말씀하신 것처럼 Why가 제일 중요하기 때문에
 
 이번 단락에서는 Uniswap V3가 가졌던 3가지 구조적 한계점과, 이를 V4가 어떤 기술적 혁신으로 극복했는지 살펴본다.
 
-### **1. 아키텍처의 비효율성**
+#### **1. 아키텍처의 비효율성**
 
 ![image.png](Uniswap%20V4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%94%A5%EB%8B%A4%EC%9D%B4%EB%B8%8C/image.png)
 
@@ -50,7 +50,7 @@ V4는 이 문제를 Singleton 패턴과 Flash Accounting 도입으로 해결했�
 
 여기에 Flash Accounting이 더해지면서 토큰 전송 비용도 획기적으로 줄었다. 기존과 달리 V4의 스왑 과정에서는 토큰이 단계별로 이동하지 않는다. 대신 `PoolManager` 내부 장부에서 `delta` 값(받을 돈/줄 돈)만 계산하고, 모든 로직이 끝난 뒤 최종 결과물만 딱 정산한다. 덕분에 아무리 복잡한 경로로 스왑하더라도 중간 과정에서 나가는 토큰 전송 비용은 완벽하게 '0'이 된다.
 
-### **2. 실행 흐름의 제약**
+#### **2. 실행 흐름의 제약**
 
 V3의 코어 로직은 불변(Immutable)하며, 모든 Pool에 동일한 연산 과정이 강제된다. 이는 다양한 파생 기능을 구현하는 데 있어 다음과 같은 기술적 제약을 야기했다.
 
@@ -76,7 +76,7 @@ V4는 이러한 제약을 'Hook'이라는 콜백(Callback) 인터페이스로 �
 
 이제 개발자는 무거운 래퍼 컨트랙트를 거치지 않고, `beforeSwap`이나 `afterAddLiquidity` 시점에 직접 커스텀 로직을 실행할 수 있다. 이를 통해 시장 상황에 따라 실시간으로 변하는 Dynamic Fee를 구현하거나, 불필요한 중개 과정을 제거하여 실행 흐름을 완전히 제어할 수 있게 된 것이다.
 
-### 3. 자산 관리의 비효율
+#### 3. 자산 관리의 비효율
 
 - **ERC-6909: Native Claims**
 
@@ -107,15 +107,15 @@ Hooks를 활용하면 MEV(Maximal Extractable Value)를 포착하거나, 커스�
 
 이 함수가 호출되면 기부된 금액만큼 `feeGrowthGlobal` 값이 증가하고, 결과적으로 현재 활성화된(Active) 유동성 포지션을 가진 모든 LP는 자신의 지분에 비례하여 이 수익을 즉시 수령할 수 있게 된다. Donate는 Hooks가 만들어낸 부가 가치를 기존의 수수료 정산 시스템에 태워 LP들에게 환원시키는 핵심 파이프라인이다.
 
-# Body: **코드 베이스로 보는 Uniswap V4**
+## Body: **코드 베이스로 보는 Uniswap V4**
 
 Uniswap V4에 존재하는 여러 흐름들을 통해서 확인해보자.
 
-## Part 1. Create Pool
+### Part 1. Create Pool
 
 Uniswap V4에서 유동성을 공급하거나 스왑을 하기 위해서는 가장 먼저 Pool이 존재해야 한다. Singleton 구조인 V4에서는 새로운 컨트렉트를 배포하지 않고 `initialize()` 함수를 호출을 통해 `PoolManager`에 Pool의 정보를 등록하여 Pool을 만들 수 있다.
 
-### 1. Pool의 정의: `PoolKey`
+#### 1. Pool의 정의: `PoolKey`
 
 V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
@@ -127,7 +127,7 @@ V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
     (Hook은 뒤에서 자세히 다뤄보자.)
     
 
-### 2. Pool의 초기화: `initialize()`
+#### 2. Pool의 초기화: `initialize()`
 
 `PoolKey`가 준비되었다면, `initialize` 로직을 통해 실제 풀을 생성한다.
 
@@ -135,7 +135,7 @@ V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
 `PoolKey`와 초기 가격인 `sqrtPriceX96`을 파라미터로 전달하면, 먼저 키 속성에 대한 유효성 검증을 수행한다. 이후 `beforeInitialize` 훅을 실행하고, `PoolId`를 생성하여 내부 저장소(`_pools`)에 초기 가격을 기록한다. (hooks.isValidHookAddress에 대해서는 뒷 파트에서 보자)
 
-### 3. Pool의 식별: `PoolId`
+#### 3. Pool의 식별: `PoolId`
 
 `PoolManager`는 전달받은 `PoolKey`값을 그대로 저장하지 않고, 이를 Hash하여 고유한 식별자인 `PoolId`를 생성한다.
 
@@ -145,7 +145,7 @@ V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
 이 `PoolId`는 V4의 Singleton 컨트랙트 내에서 특정 Pool을 찾기 위한 유일한 주소 역할을 한다. Pool이 생성된 후에는 `PoolKey`의 어떤 속성도 변경할 수 없다.
 
-### 4. 초기 가격 설정: Slot0와 State
+#### 4. 초기 가격 설정: Slot0와 State
 
 다음으로 `PoolManager`는 `PoolId`를 키(Key)로 하여 초기 상태를 저장한다.
 `PoolManager`가 라이브러리 함수를 호출하면, 실제 데이터 저장은 `Pool.sol` 내부 로직에 의해 수행된다.
@@ -189,13 +189,13 @@ function initialize(State storage self, uint160 sqrtPriceX96, uint24 lpFee) inte
 
 이로써 Pool이 생성되어 거래를 시작할 준비가 완료되었다.
 
-## Part 2. Hooks
+### Part 2. Hooks
 
 Part 1에서 `PoolKey`에 `hooks` 주소를 담아 Pool을 생성하는 구조를 살펴보았다. Hook은 개발자가 Pool의 Lifecycle에 개입할 수 있게 해주지만, 빈번한 호출로 인한 가스비 문제가 발생할 수 있다. V4는 이를 해결하기 위해 Bitmasking, Assembly Call, 그리고 Delta 연산이라는 세 가지 핵심 기술을 도입했다.
 
 이번 파트에서는 Hook이 어떻게 설계되었는지와 호출 흐름을 살펴보자. 
 
-### 1. Address Bitmasking & Mining
+#### 1. Address Bitmasking & Mining
 
 일반적인 DeFi 프로토콜은 설정값을 Storage에 저장하고 조회한다. 하지만 V4는 `SLOAD` 가스를 절감하기 위해 주소 자체에 설정을 내장하는 방식을 택했다.
 
@@ -228,7 +228,7 @@ uint160 internal constant AFTER_REMOVE_LIQUIDITY_RETURNS_DELTA_FLAG = 1 << 0;
 
 Return Delta를 활성화한 주소를 채굴하면, Hook은 단순히 로직을 수행하는 것을 넘어 스왑 수량이나 유동성 수량을 직접 변경할 수 있는 권한을 갖게 된다.
 
-### 2. Permissions Validation
+#### 2. Permissions Validation
 
 비트마스크는 효율적이지만, 개발자의 실수를 유발하기 쉽다. 주소 채굴이 잘못되었을 경우를 대비해 V4는 `Permissions` 구조체를 통한 앞의 14 bit의 검증 절차를 제공한다.
 
@@ -244,7 +244,7 @@ struct Permissions {
 
 Hook 컨트랙트가 배포될 때, `validateHookPermissions` 함수를 통해 의도한 bit들이 제대로 설정 되었는지 채굴된 주소가 일치하는지 배포 시점에 강제로 검증된다. (`BaseHook.sol`에 구현되어 있어 상속받아 처리)
 
-### **3. Hook Execution Flow**
+#### **3. Hook Execution Flow**
 
 `PoolManager`가 Hook을 실행하고 결과를 반영하는 과정은 크게 Entry → Call → Apply 3단계로 이루어진다.
 
@@ -313,7 +313,7 @@ V4는 효율성을 위해 `int256`라는 하나에 두 개의 숫자(입력/출�
 
 `beforeSwap` 단계에서는 아직 스왑 결과가 계산되기 전이므로, Hook은 사용자가 제시한 입력값을 수정하기 위해 Specified Delta를 추출하여 `amountToSwap`에 반영한다.
 
-### 4. Recursion Protection: `noSelfCall`
+#### 4. Recursion Protection: `noSelfCall`
 
 Hook이 실행 도중 다시 `PoolManager`를 호출하여 무한 재진입에 빠지는 것을 방지하기 위해 Hook 함수들에 제어자로 `noSelfCall`가 사용된다.
 
@@ -321,7 +321,7 @@ Hook이 실행 도중 다시 `PoolManager`를 호출하여 무한 재진입에 �
 
 참고로 앞서 본 `beforeSwap`처럼 값을 리턴해야 하는 함수는 modifier 대신 내부 `if`문으로 수동 구현하며, 그 외 함수들은 이 modifier를 사용하여 재진입을 차단한다. (`afterSwap`, `afterModifyLiquidity` 함수도 수동 구현이다)
 
-### 5. Practical Implementation: BaseHook 활용
+#### 5. Practical Implementation: BaseHook 활용
 
 실무에서는 `v4-periphery` 패키지의 `BaseHook`을 상속받아 더 안전하고 쉽게 훅을 개발한다.
 
@@ -344,11 +344,11 @@ Hook이 실행 도중 다시 `PoolManager`를 호출하여 무한 재진입에 �
 3. `CounterHook.beforeSwap`을 호출하여 카운트를 1 증가시킨다.
 4. 스왑 로직을 계속 진행한다.
 
-## Part 3. Lock Mechanism
+### Part 3. Lock Mechanism
 
 Uniswap V4의 상호작용은 `PoolManager.unlock()` 함수를 통해 시작된다. V3와 달리 V4는 Singleton 구조와 Flash Accounting을 도입했기 때문에, 트랜잭션의 Context을 관리하는 **Lock Mechanism**이 필수적이다.
 
-### 1. Lock 라이브러리와 Transient Storage
+#### 1. Lock 라이브러리와 Transient Storage
 
 V4는 락 상태 관리를 위해 `Lock` 라이브러리를 사용한다. 이 라이브러리는 이더리움 Dencun 업그레이드에 포함된 EIP-1153 (Transient Storage)을 활용하여 가스 효율성을 극대화했다.
 
@@ -384,7 +384,7 @@ library Lock {
 
 `IS_UNLOCKED_SLOT`에 저장된 데이터는 트랜잭션이 종료되면 자동으로 소멸하므로, 기존 `SSTORE/SLOAD` 방식(약 20,000 gas) 대비 매우 저렴한 비용(100 gas)으로 상태를 관리할 수 있다.
 
-### 2. Execution Flow
+#### 2. Execution Flow
 
 `PoolManager`는 위 라이브러리를 사용하여 Unlock → Callback → Check 순서로 트랜잭션을 처리한다.
 
@@ -414,7 +414,7 @@ function unlock(bytes calldata data) external override returns (bytes memory res
 1. **`Lock.lock()`**
 - 모든 검증이 통과되면 `Lock.lock()`을 호출하여 상태를 다시 `false`로 되돌리고 트랜잭션을 종료한다.
 
-### 3. Access Control: **`onlyWhenUnlocked`**
+#### 3. Access Control: **`onlyWhenUnlocked`**
 
 `PoolManager`는 `unlock` 함수를 통해서만 상태 변경이 시작되도록 설계되었다. 이를 코드 레벨에서 강제하는 것이 바로 `onlyWhenUnlocked` Modifier다.
 
@@ -432,13 +432,13 @@ V4의 핵심 로직인 `swap`, `modifyLiquidity`, `donate`, `take`, `settle`, `m
 
 즉, 우리가 다음 파트에서 다룰 유동성 공급 또한 반드시 이 `unlock` 컨텍스트 안에서, `unlockCallback`을 통해 실행되어야 한다.
 
-## Part 4. Liquidity Provision
+### Part 4. Liquidity Provision
 
 이번 파트에서는 유동성 공급하는 과정을 코드 레벨에서 상세히 따라갈 예정이다. V4는 V3의 Concentrated Liquidity 구조를 계승한다. 따라서 본문의 이해를 돕기 위해 Tick, Price, Liquidity의 기본 개념을 나오기 때문에 아래 링크를 통해 먼저 숙지하시는 것을 추천합니다.
 
 https://uniswapv3book.com/milestone_0/uniswap-v3.html
 
-### 1. Liquidity Provision Work flow
+#### 1. Liquidity Provision Work flow
 
 V4의 유동성 공급은 단순히 함수 하나를 호출하는 것으로 끝나지 않는다. Flash Accounting을 위해 [요청] → [Lock] → [Callback] → [실행] → [정산] 흐름을 따른다.
 
@@ -458,7 +458,7 @@ V4의 유동성 공급은 단순히 함수 하나를 호출하는 것으로 끝�
 
 이 과정을 이제 따라가 보자.
 
-### 2. Setup
+#### 2. Setup
 
 현재 price와 공급할 범위를 다음처럼 설정해보자.
 
@@ -497,7 +497,7 @@ tickUpper = 86040  (~$5502)
 
 따라서 유동성이 공급될 때, ~$4543과~$5502 범위로 들어가게 된다.
 
-### 3. Entry Point
+#### 3. Entry Point
 
 유동성 공급의 진입점은 `PoolManager` 컨트랙트이다. `modifyLiquidity()` 함수에 대해 알아보자. 이곳은 복잡한 계산보다는 전체적인 흐름 관리를 담당한다.
 
@@ -511,7 +511,7 @@ tickUpper = 86040  (~$5502)
 
 이제 `pool.modifyLiquidity` 내부로 들어가, 실제 유동성이 어떻게 계산되고 저장되는지 몇가지 부분으로 나눠서 살펴보자.
 
-### **4. Code Execution Flow**
+#### **4. Code Execution Flow**
 
 ![image.png](Uniswap%20V4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%94%A5%EB%8B%A4%EC%9D%B4%EB%B8%8C/image%2011.png)
 
@@ -544,7 +544,7 @@ tick update하는 과정을 보자.
 
 - Tick 내용은 차후 업데이트하겠습니다.
     
-    ## Part 3. Tick Mechanism
+    ### Part 3. Tick Mechanism
     
     `updateTick()`은 다음과 같다.
     
@@ -563,7 +563,7 @@ tick update하는 과정을 보자.
     
     특히 혁신적인 점은  **`updateTick`** 최적화된 저장 방식입니다. 저수준 어셈블리를 사용하여 총 유동성 및 순 유동성 값을 단일 저장 슬롯에 효율적으로 저장함으로써 가스 비용을 크게 절감합니다. 이러한 최적화는 일반적인 풀 활동 중에 이러한 작업이 빈번하게 발생한다는 점을 고려할 때 특히 중요합니다. 이 기능의 세심한 설계 덕분에 유동성 공급자는 정확한 수수료 계산을 받으면서 프로토콜의 높은 성능 기준을 유지할 수 있으며, 이는 유니스왑 V4의 개선된 집중 유동성 모델의 핵심 요소입니다.
     
-    ### tickSpacingToMaxLiquidityPerTick()
+    #### tickSpacingToMaxLiquidityPerTick()
     
     ![image.png](Uniswap%20V4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%94%A5%EB%8B%A4%EC%9D%B4%EB%B8%8C/image%2014.png)
     
@@ -657,11 +657,11 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 이 과정을 통해 최종적으로 계산된 `delta`와 `feeDelta`가 `PoolManager`로 반환되고, 서두에 언급한 `_accountPoolBalanceDelta`를 통해 기록된다.
 
-## Part 5. Swap Mechanism
+### Part 5. Swap Mechanism
 
 이번 파트에서는 Swap 메커니즘을 코드 레벨에서 상세히 따라갈 예정이다. 
 
-### 1. Swap Work Flow
+#### 1. Swap Work Flow
 
 ![image.png](Uniswap%20V4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%94%A5%EB%8B%A4%EC%9D%B4%EB%B8%8C/e8a4f25f-7589-4fd9-a534-1df26e4eaedf.png)
 
@@ -690,7 +690,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 따라서 중간에 transfer하는 과정없이 마지막에만 토큰 이동(또는 6909 Minting/Burning)이 되게 된다.
 
-### 2. **Conceptual knowledge**
+#### 2. **Conceptual knowledge**
 
 **2-1 방향성과 가격 이동: `zeroForOne`**
 Swap 함수는 내부적으로 어떤 토큰을 팔고 사는지에 따라 연산 방식이 완전히 두 갈래로 나뉜다. 이를 결정하는 boolean 변수가 `zeroForOne`이다.
@@ -720,7 +720,7 @@ Swap은 한 번의 수식 계산으로 끝나지 않는다. 현재 가격에서 
 - Tick 교차: 만약 목표 Tick에 도달했다면 Tick을 넘어가며(Crossing), 해당 Tick에 걸려있던 유동성을 전체 활성 유동성에 더하거나 뺀다.
 - 반복: `amountSpecified`가 모두 소진되거나 지정한 가격 제한(`sqrtPriceLimitX96`)에 도달할 때까지 1~3을 반복한다.
 
-### 3. Entry Point
+#### 3. Entry Point
 
 Swap의 진입점은 `PoolManager` 컨트랙트로 `swap()` 함수를 통해 시작된다. 이곳은 복잡한 계산보다는 전체적인 흐름 관리를 담당한다.
 
@@ -734,7 +734,7 @@ Swap의 진입점은 `PoolManager` 컨트랙트로 `swap()` 함수를 통해 시
 
 이제 `pool.swap` 내부로 들어가, 실제 유동성이 어떻게 계산되고 저장되는지 몇가지 부분으로 나눠서 살펴보자.
 
-### 4. Code Execution Flow
+#### 4. Code Execution Flow
 
 ![image.png](Uniswap%20V4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%94%A5%EB%8B%A4%EC%9D%B4%EB%B8%8C/image%2021.png)
 
@@ -1029,7 +1029,7 @@ while (!(amountSpecifiedRemaining == 0 || result.sqrtPriceX96 == params.sqrtPric
         - `true != false` (Exact Output, token0 매도)
         user가 token1을 정확히 받겠다고 지정했다. 따라서 token1 자리에 지정 토큰 처리량(Output)을 넣고, token0 자리에 계산된 Input 수량을 넣는다.
 
-# Conclusion
+## Conclusion
 
 이번 Uniswap V4 코드를 분석하며 체감한 변화의 핵심은 가스비 최적화에 대한 고민과 플랫폼으로의 아키텍처 전환이다.
 
@@ -1039,7 +1039,7 @@ while (!(amountSpecifiedRemaining == 0 || result.sqrtPriceX96 == params.sqrtPric
 
 결과적으로 이번 V4 업데이트는 Uniswap이 앞으로 DEX 시장의 중심 인프라로서 확고한 자리를 잡기 위한 행보라고 생각한다.
 
-# References
+## References
 
 https://www.quillaudits.com/research/uniswap-development/uniswap-v4/liquidity-mechanics-in-uniswap-v4-core
 
@@ -1056,3 +1056,4 @@ https://docs.uniswap.org/
 https://www.cyfrin.io/blog/uniswap-v4-hooks-security-deep-dive
 
 https://medium.com/@organmo/uniswap-v4-deep-dive-2-uniswap-v4%EC%9D%98-%ED%98%84-%EC%83%81%ED%99%A9%EA%B3%BC-%EC%A0%84%EB%A7%9D-7205d4bcdabb
+
