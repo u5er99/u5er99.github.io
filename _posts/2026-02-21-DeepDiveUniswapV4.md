@@ -1012,20 +1012,18 @@ while (!(amountSpecifiedRemaining == 0 || result.sqrtPriceX96 == params.sqrtPric
 결과적으로 이번 V4 업데이트는 Uniswap이 앞으로 DEX 시장의 중심 인프라로서 확고한 자리를 잡기 위한 행보라고 생각한다.
 
 ## References
+[Liquidity Mechanism in UniswapV4 Core](https://www.quillaudits.com/research/uniswap-development/uniswap-v4/liquidity-mechanics-in-uniswap-v4-core)
 
-https://www.quillaudits.com/research/uniswap-development/uniswap-v4/liquidity-mechanics-in-uniswap-v4-core
+[UniswapV3 Development Book](https://uniswapv3book.com/index.html)
 
-https://uniswapv3book.com/index.html
+[Tariz-UNISWAP SERIES 2. CPMM 이해하기](https://hyun-jeong.medium.com/uniswap-series-2-cpmm-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-4a82de8aba9)
 
-https://hyun-jeong.medium.com/uniswap-series-2-cpmm-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-4a82de8aba9
+[Tariz-UNISWAP SERIES 3. 유니스왑 v3 톺아보기](https://hyun-jeong.medium.com/uniswap-series-3-%EC%9C%A0%EB%8B%88%EC%8A%A4%EC%99%91-v3-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0-a058235823e3)
 
-https://hyun-jeong.medium.com/uniswap-series-3-%EC%9C%A0%EB%8B%88%EC%8A%A4%EC%99%91-v3-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0-a058235823e3
+[Seungmin Jeon Uniswap V4 Deep Dive](https://medium.com/decipher-media/uniswap-v4-deep-dive-1-%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-v4-2881fa0358aa)
 
-https://medium.com/decipher-media/uniswap-v4-deep-dive-1-%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-v4-2881fa0358aa
+[Uniswap Docs | Uniswap](https://docs.uniswap.org/)
 
-https://docs.uniswap.org/
 
-https://www.cyfrin.io/blog/uniswap-v4-hooks-security-deep-dive
 
-https://medium.com/@organmo/uniswap-v4-deep-dive-2-uniswap-v4%EC%9D%98-%ED%98%84-%EC%83%81%ED%99%A9%EA%B3%BC-%EC%A0%84%EB%A7%9D-7205d4bcdabb
 
