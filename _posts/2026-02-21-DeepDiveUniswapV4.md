@@ -1016,13 +1016,13 @@ while (!(amountSpecifiedRemaining == 0 || result.sqrtPriceX96 == params.sqrtPric
 
 [UniswapV3 Development Book](https://uniswapv3book.com/index.html)
 
-[Tariz-UNISWAP SERIES 2. CPMM 이해하기](https://hyun-jeong.medium.com/uniswap-series-2-cpmm-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-4a82de8aba9)
+[Tariz-\[UNISWAP SERIES 2. CPMM 이해하기\]](https://hyun-jeong.medium.com/uniswap-series-2-cpmm-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-4a82de8aba9)
 
-[Tariz-UNISWAP SERIES 3. 유니스왑 v3 톺아보기](https://hyun-jeong.medium.com/uniswap-series-3-%EC%9C%A0%EB%8B%88%EC%8A%A4%EC%99%91-v3-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0-a058235823e3)
+[Tariz-\[UNISWAP SERIES 3. 유니스왑 v3 톺아보기\]](https://hyun-jeong.medium.com/uniswap-series-3-%EC%9C%A0%EB%8B%88%EC%8A%A4%EC%99%91-v3-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0-a058235823e3)
 
-[Seungmin Jeon Uniswap V4 Deep Dive](https://medium.com/decipher-media/uniswap-v4-deep-dive-1-%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-v4-2881fa0358aa)
+[Seungmin Jeon-\[Uniswap V4 Deep Dive\]](https://medium.com/decipher-media/uniswap-v4-deep-dive-1-%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-v4-2881fa0358aa)
 
-[Uniswap Docs | Uniswap](https://docs.uniswap.org/)
+[Uniswap Docs](https://docs.uniswap.org/)
 
 
 
