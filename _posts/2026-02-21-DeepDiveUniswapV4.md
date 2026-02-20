@@ -28,7 +28,7 @@ Mr.Juno와 Minbuu가 말씀하신 것처럼 Why가 제일 중요하기 때문에
 
 #### **1. 아키텍처의 비효율성**
 
-![alt text](/assets/img/image-3.png){:width="50%" height="50px"}
+![alt text](/assets/img/image-3.png)
 
 Uniswap V3는 `PoolFactory`를 통해 새로운 Pool을 생성할 때마다 매번 별도의 스마트 컨트랙트를 배포하는 방식을 사용한다. 사실 이 방식은 Pool을 만드는 것 자체만으로도 가스비 부담이 크다.
 
@@ -113,7 +113,7 @@ Uniswap V4에서 유동성을 공급하거나 스왑을 하기 위해서는 가�
 
 V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
-![](/assets/img/image-4.png){:width="50%" height="50px"}
+![](/assets/img/image-4.png)
 
 - **Currency 정렬:** `currency0`과 `currency1`은 주소값 크기 순으로 자동 정렬된다. 이는 `ETH/USDC`와 `USDC/ETH`가 서로 다른 풀로 중복 생성되는 것을 방지하기 위함이다.
 - **Hooks 포함:** V3와 가장 큰 차이점은 `hooks` 주소가 Key에 포함된다는 점이다. 즉, 동일한 토큰 쌍이라도 어떤 Hook을 장착했느냐에 따라 아예 다른 Pool로 취급된다.
@@ -125,7 +125,7 @@ V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
 `PoolKey`가 준비되었다면, `initialize` 로직을 통해 실제 풀을 생성한다.
 
-![](/assets/img/image-5.png){:width="50%" height="50px"}
+![](/assets/img/image-5.png)
 
 
 `PoolKey`와 초기 가격인 `sqrtPriceX96`을 파라미터로 전달하면, 먼저 키 속성에 대한 유효성 검증을 수행한다. 이후 `beforeInitialize` 훅을 실행하고, `PoolId`를 생성하여 내부 저장소(`_pools`)에 초기 가격을 기록한다. (hooks.isValidHookAddress에 대해서는 뒷 파트에서 보자)
@@ -134,7 +134,7 @@ V4는 **`PoolKey`** 구조체를 통해 Pool의 정보를 담는다.
 
 `PoolManager`는 전달받은 `PoolKey`값을 그대로 저장하지 않고, 이를 Hash하여 고유한 식별자인 `PoolId`를 생성한다.
 
-![](/assets/img/image-6.png){:width="50%" height="50px"}
+![](/assets/img/image-6.png)
 
 
 
@@ -165,7 +165,7 @@ function initialize(State storage self, uint160 sqrtPriceX96, uint24 lpFee) inte
 위 코드를 보면 `State` 구조체의 많은 필드 중 오직 `Slot0`만 업데이트한다. 나머지도 살펴보자.
 
 
-![](/assets/img/image-7.png){:width="50%" height="50px"}
+![](/assets/img/image-7.png)
 
 
 1. **`Slot0 slot0`**
@@ -251,7 +251,7 @@ Hook 컨트랙트가 배포될 때, `validateHookPermissions` 함수를 통해 �
 
 Hook들 중에서 `beforeSwap`의 흐름을 살펴보자. 여기서 외부 호출과 로직 개입이 모두 관리된다.
 
-![](/assets/img/image-8.png){:width="50%" height="50px"}
+![](/assets/img/image-8.png)
 
 
 
@@ -262,7 +262,7 @@ Hook들 중에서 `beforeSwap`의 흐름을 살펴보자. 여기서 외부 호�
 `callHook`은 실제 외부 컨트랙트를 호출하는 엔진이다. 가스 최적화와 동적 리턴 데이터 처리를 위해 Inline Assembly를 사용한다.
 
 
-![](/assets/img/image-9.png){:width="50%" height="50px"}
+![](/assets/img/image-9.png)
 
 
 일반 call 호출은 리턴값의 크기를 모르기 때문에 넉넉하게 메모리를 잡거나 불필요한 복사를 수행한다. EVM은 메모리를 쓸수록 가스 비용이 제곱으로 증가한다.
@@ -299,7 +299,7 @@ V4는 효율성을 위해 `int256`라는 하나에 두 개의 숫자(입력/출�
 
 Hook이 실행 도중 다시 `PoolManager`를 호출하여 무한 재진입에 빠지는 것을 방지하기 위해 Hook 함수들에 제어자로 `noSelfCall`가 사용된다.
 
-![](/assets/img/image-10.png){:width="50%" height="50px"}
+![](/assets/img/image-10.png)
 
 
 참고로 앞서 본 `beforeSwap`처럼 값을 리턴해야 하는 함수는 modifier 대신 내부 `if`문으로 수동 구현하며, 그 외 함수들은 이 modifier를 사용하여 재진입을 차단한다. (`afterSwap`, `afterModifyLiquidity` 함수도 수동 구현이다)
@@ -312,13 +312,13 @@ Hook이 실행 도중 다시 `PoolManager`를 호출하여 무한 재진입에 �
 
 우리가 만들 CounterHook은 스왑이 발생할 때마다 횟수를 세는 간단한 로직을 담고 있다.
 
-![](/assets/img/image-11.png){:width="50%" height="50px"}
+![](/assets/img/image-11.png)
 
 **(2) Integration: PoolKey와의 연결**
 
 이제 이 훅을 Part 1에서 배운 `PoolKey`에 장착하여 풀을 생성해 보자.
 
-![](/assets/img/image-12.png){:width="50%" height="50px"}
+![](/assets/img/image-12.png)
 
 이제 누군가 이 풀에서 `swap()`을 호출하면:
 
@@ -426,7 +426,7 @@ https://uniswapv3book.com/milestone_0/uniswap-v3.html
 V4의 유동성 공급은 단순히 함수 하나를 호출하는 것으로 끝나지 않는다. Flash Accounting을 위해 [요청] → [Lock] → [Callback] → [실행] → [정산] 흐름을 따른다.
 
 
-![](/assets/img/image-13.png){:width="50%" height="50px"}
+![](/assets/img/image-13.png)
 
 1. user가 Periphery 컨트랙트에 `modifyLiquidity()` 함수를 호출한다.
 2. Periphery 컨트랙트가 PoolManager 컨트랙트의 `unlock()` 함수를 호출하면, PoolManager는 `unlockCallback()` 호출한다.
@@ -486,7 +486,7 @@ tickUpper = 86040  (~$5502)
 유동성 공급의 진입점은 `PoolManager` 컨트랙트이다. `modifyLiquidity()` 함수에 대해 알아보자. 이곳은 복잡한 계산보다는 전체적인 흐름 관리를 담당한다.
 
 
-![](/assets/img/image-14.png){:width="50%" height="50px"}
+![](/assets/img/image-14.png)
 
 이 코드에서 주목할 점은 다음과 같다.
 
@@ -498,7 +498,7 @@ tickUpper = 86040  (~$5502)
 
 #### **4. Code Execution Flow**
 
-![](/assets/img/image-15.png){:width="50%" height="50px"}
+![](/assets/img/image-15.png)
 
 
 Pool 라이브러리의 `modifyLiquidity` 함수는 Tick 상태 갱신, 수수료 계산, 비트맵 관리, 그리고 전역 유동성 업데이트를 담당합니다.
@@ -510,7 +510,7 @@ Pool 라이브러리의 `modifyLiquidity` 함수는 Tick 상태 갱신, 수수�
 유동성 변화가 있는 경우(`liquidityDelta != 0`), Lower/Upper Tick의 상태를 갱신한다.
 
 
-![](/assets/img/image-16.png){:width="50%" height="50px"}
+![](/assets/img/image-16.png)
 
 tick update하는 과정을 보자.
 
@@ -534,7 +534,7 @@ tick update하는 과정을 보자.
 
 V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 수학적 오류를 방지하기 위해 안전장치를 둔다.
 
-![](/assets/img/image-17.png){:width="50%" height="50px"}
+![](/assets/img/image-17.png)
 
 
 유동성을 추가할 때, tickSpacing을 기반으로 단일 tick에서 저장할 수 있는 최대 유동성 값을 확인한다.
@@ -549,7 +549,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 앞에서 계산한 유동성에 따라 나온`flippedLower`, `flippedUpper` 값을 확인해서 lower, upper tick의 bitmap을 변경시킬 수 있다.
 
-![](/assets/img/image-18.png){:width="50%" height="50px"}
+![](/assets/img/image-18.png)
 
 
 해당 tick의 Gross liquidity의 값에 따라 다음과 같이 변한다.
@@ -568,7 +568,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 **4-4. Fee & Position Management**
 
-![](/assets/img/image-19.png){:width="50%" height="50px"}
+![](/assets/img/image-19.png)
 
 
 
@@ -592,7 +592,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 `position.update`를 호출하면 내 포지션의 유동성을 변경함과 동시에, 그동안 쌓인 수수료를 계산하여 반환해 준다. 이 값은 즉시 지급되는 것이 아니라 `feeDelta`에 기록되어 나중에 정산된다.
 **4-5. Cleanup**
 
-![](/assets/img/image-20.png){:width="50%" height="50px"}
+![](/assets/img/image-20.png)
 
 
 유동성을 제거할 때 위 로직이 진행된다. (`liquidityDelta < 0`)
@@ -603,7 +603,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 **4-6. Global Liquidity Update**
 
-![](/assets/img/image-21.png){:width="50%" height="50px"}
+![](/assets/img/image-21.png)
 
 
 1. **Price와 Position의 관계**에 따라 3가지로 나뉘게 된다.
@@ -629,7 +629,7 @@ V4는 단일 Tick에 과도한 유동성이 집중되어 발생할 수 있는 �
 
 #### 1. Swap Work Flow
 
-![](/assets/img/image-22.png){:width="50%" height="50px"}
+![](/assets/img/image-22.png)
 
 
 1. User는 periphery contract를 통해서 swap 과정을 진입한다.
@@ -691,7 +691,7 @@ Swap은 한 번의 수식 계산으로 끝나지 않는다. 현재 가격에서 
 
 Swap의 진입점은 `PoolManager` 컨트랙트로 `swap()` 함수를 통해 시작된다. 이곳은 복잡한 계산보다는 전체적인 흐름 관리를 담당한다.
 
-![](/assets/img/image-23.png){:width="50%" height="50px"}
+![](/assets/img/image-23.png)
 
 
 이 코드에서 주목할 점은 다음과 같다.
@@ -704,7 +704,7 @@ Swap의 진입점은 `PoolManager` 컨트랙트로 `swap()` 함수를 통해 시
 
 #### 4. Code Execution Flow
 
-![](/assets/img/image-24.png){:width="50%" height="50px"}
+![](/assets/img/image-24.png)
 
 
 **Initial State Variables**
@@ -727,7 +727,7 @@ Swap의 진입점은 `PoolManager` 컨트랙트로 `swap()` 함수를 통해 시
 - `result.tick = slot0Start.tick();`: 현재 Tick 값
 - `result.liquidity = self.liquidity;`: pool에 현재 유동성 값
 
-![](/assets/img/image-25.png){:width="50%" height="50px"}
+![](/assets/img/image-25.png)
 
 
 **Fee Configuration**
@@ -747,7 +747,7 @@ $$
 
 - 마지막으로 `amountSpecified == 0`이라면 swapFee를 없애서 오류가 발생하지 않게 만든다.
 
-![](/assets/img/image-26.png){:width="50%" height="50px"}
+![](/assets/img/image-26.png)
 
 
 방향에 따라 price 검증을 한다.
@@ -956,7 +956,7 @@ while (!(amountSpecifiedRemaining == 0 || result.sqrtPriceX96 == params.sqrtPric
     - `amountSpecified`이 먼저 고갈되어, 목표 tick 가격에 도달하지 못하고 중간에 멈춘 경우이다.
     - tick을 crossing 할 필요 없으므로 `crossTick`은 실행되지 않는다. 대신 최종적으로 멈춘 가격(`result.sqrtPriceX96`)을 기준으로 `TickMath.getTickAtSqrtPrice` 수학 라이브러리를 돌려, 현재 속해있는 tick 인덱스를 재계산하여 업데이트한다.
 
-![](/assets/img/image-27.png){:width="50%" height="50px"}
+![](/assets/img/image-27.png)
 
 
 **Swap 후 상태 업데이트**
