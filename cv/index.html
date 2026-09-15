@@ -119,18 +119,41 @@
     .mast .in,.title,.cv,footer .in{padding-left:20px;padding-right:20px;}
   }
 
+  .print-head{display:none;}
   @media print{
-    .mast,.idx,footer{display:none;}
+    @page{margin:14mm 15mm;}
+    .mast,.idx,footer,.title{display:none;}
     html{scroll-behavior:auto;}
-    body{font-size:11pt;}
+    body{font-size:10pt;line-height:1.4;}
+    /* centered resume header */
+    .print-head{display:block;text-align:center;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid #000;}
+    .print-head .ph-name{font-family:var(--head);font-weight:900;font-size:20pt;letter-spacing:-.01em;}
+    .print-head .ph-sub{font-family:var(--mono);font-size:8.5pt;text-transform:uppercase;letter-spacing:.05em;color:#222;margin-top:5px;}
+    .print-head .ph-contact{font-family:var(--mono);font-size:8pt;color:#333;margin-top:5px;}
+    /* body single column, compact */
     .cv{grid-template-columns:1fr;gap:0;padding:0;}
-    .title{padding:0 0 16px;}
+    .body{padding-top:0;}
+    .sec{padding-top:0;margin:0;} .sec + .sec{margin-top:12px;}
+    .sec-h{margin-bottom:8px;padding-bottom:4px;gap:10px;}
+    .sec-h .n{font-size:15pt;} .sec-h h2{font-size:13pt;}
+    .ent{padding:6px 0 7px;} .ent .role{font-size:10.5pt;}
+    .ent ul{margin-top:4px;} .ent ul li{margin:2px 0;}
+    .kv{padding:4px 0;}
     .sec,.ent{page-break-inside:avoid;}
-    a{color:#000;} .org,.kv .kk{color:#000;}
+    a{color:#000;text-decoration:none;} .org,.kv .kk,.sec-h .n,.ent .date{color:#000;}
+    .ent .org a,.ent a.src{border-bottom:none;}
+    .ent .org a::after,.ent a.src::after,.idx .ct a::after{content:"";}
+    .lb{display:none;}
   }
 </style>
 </head>
 <body>
+
+<div class="print-head" aria-hidden="true">
+  <div class="ph-name">Kim Sanghyeon · 김상현</div>
+  <div class="ph-sub">Blockchain Validator · Infra · Smart-contract Security</div>
+  <div class="ph-contact">tkdgusrns456@korea.ac.kr · github.com/u5er99 · linkedin.com/in/kimsh- · x.com/u5er_99</div>
+</div>
 
 <header class="mast"><div class="in">
   <a class="id" href="/"><span class="sq"></span>u5er99</a>
@@ -141,7 +164,7 @@
   <h1><span class="en">Kim Sanghyeon</span><span class="ko">김상현</span><span class="r">.</span></h1>
   <div class="sub"><span class="en">Blockchain Validator · Infra · Smart-contract Security</span><span class="ko">블록체인 밸리데이터 · 인프라 · 스마트컨트랙트 보안</span></div>
   <div class="title-foot">
-    <p class="lede"><span class="en">Interested in <b>blockchain infrastructure</b>, <b>smart-contract security</b>, and AI-driven security.</span><span class="ko"><b>블록체인 인프라</b>와 <b>스마트컨트랙트 보안</b>, 그리고 AI 기반 보안에 관심을 둡니다.</span></p>
+    <p class="lede"><span class="en">Interested in <b>blockchain infrastructure</b> and <b>smart-contract security</b>.</span><span class="ko"><b>블록체인 인프라</b>와 <b>스마트컨트랙트 보안</b>에 관심을 둡니다.</span></p>
     <div class="acts">
       <button class="btn lang" id="langBtn" onclick="toggleLang()">한국어</button>
       <button class="btn pdf" onclick="window.print()">Print / PDF</button>
@@ -175,7 +198,7 @@
 
     <section class="sec" id="skill">
       <div class="sec-h"><span class="n">01</span><h2><span class="en">Expertise</span><span class="ko">전문 분야 · 기술</span></h2></div>
-      <div class="kv"><div class="kk"><span class="en">Focus</span><span class="ko">관심 분야</span></div><div class="vv"><span class="en">Blockchain infrastructure · Smart-contract security · AI-driven security</span><span class="ko">블록체인 인프라 · 스마트컨트랙트 보안 · AI 기반 보안</span></div></div>
+      <div class="kv"><div class="kk"><span class="en">Focus</span><span class="ko">관심 분야</span></div><div class="vv"><span class="en">Blockchain infrastructure · Smart-contract security</span><span class="ko">블록체인 인프라 · 스마트컨트랙트 보안</span></div></div>
       <div class="kv"><div class="kk">Infra</div><div class="vv">Linux/RHEL · AWS (EC2·VPC·EIP) · OVH Bare Metal · Prometheus · Grafana · RAID</div></div>
       <div class="kv"><div class="kk">Security</div><div class="vv">Solidity · Foundry · pwntools · gdb · IDA/Ghidra · Threat Modeling</div></div>
       <div class="kv"><div class="kk">Lang</div><div class="vv">Python · C · Solidity · Git</div></div>
