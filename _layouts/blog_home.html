@@ -60,7 +60,8 @@
   .photo img{width:100%;height:100%;object-fit:cover;}
   .about .intro{font-family:var(--head);font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 0;}
   .about .intro .r{color:var(--red);}
-  .about .lede{color:var(--muted);font-size:15.5px;margin:18px 0 0;max-width:52ch;}
+  .about .lede{color:var(--muted);font-size:15.5px;margin:18px 0 0;max-width:52ch;line-height:1.8;}
+  .about .lede b{color:var(--ink);font-weight:600;}
 </style>
 </head>
 <body>
@@ -75,8 +76,8 @@
   <div class="photo"><span>PHOTO<br><small>사진 자리</small></span></div>
   <div class="about">
     <p class="eyebrow">About / 김상현</p>
-    <h1 class="intro">노드를 짓고 지키고,<br>코드에서 <span class="r">구멍을 찾는</span> 사람.</h1>
-    <p class="lede">안녕하세요, 김상현입니다. 블록체인 밸리데이터를 직접 운영하며 시스템·스마트컨트랙트 보안을 파고듭니다. 인프라와 보안 사이에서 배운 것들을 여기에 기록합니다.</p>
+    <h1 class="intro">김상현<span class="r">.</span></h1>
+    <p class="lede">보안이 제일 복잡하고 어려워 보여서 <b>순전히 재미로</b> 시작했습니다. 시스템·바이너리 취약점(pwn)을 파다가 경제와 web3에 끌렸고, 지금은 <b>스마트컨트랙트 보안과 블록체인 인프라</b>를 다룹니다. 러그풀을 직접 당하고 화가 나서 컨트랙트를 뜯어보고, 밸리데이터 노드를 직접 굴리면서 <b>‘왜 이렇게 만들었나’</b>를 파고듭니다. 그렇게 파고든 것들을 여기 남깁니다.</p>
     <div class="foot"><span>Kim SangHyeon</span><span>Validator · Infra · Security</span><span><b>{{ site.posts | size }}</b> entries</span></div>
   </div>
 </div></section>
