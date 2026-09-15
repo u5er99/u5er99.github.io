@@ -46,14 +46,16 @@
 
   /* layout: sticky index + body */
   .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:170px 1fr;gap:52px;align-items:start;}
-  .idx{position:sticky;top:96px;padding-top:40px;}
-  .idx .lbl{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
-  .idx .nav a{display:flex;gap:9px;align-items:baseline;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--sec);padding:5px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--hair);}
+  .idx{position:sticky;top:88px;padding:22px 22px 18px;background:#F4F4F6;border:2px solid var(--line);border-left:5px solid var(--red);}
+  .idx .lbl{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px;}
+  .idx .nav a{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);padding:7px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid #D9D9DD;transition:color .15s;}
   .idx .nav a .n{color:var(--red-d);}
   .idx .nav a:hover{color:var(--red-d);}
+  .idx .nav a.active{color:var(--red-d);}
+  .idx .nav a.active::after{content:"";margin-left:auto;width:7px;height:7px;background:var(--red);border-radius:50%;}
 
-  .idx .ct{margin-top:28px;padding-top:20px;border-top:2px solid var(--line);}
-  .idx .ct a{display:flex;align-items:center;gap:9px;padding:7px 0;font-family:var(--head);font-weight:700;font-size:13px;color:var(--ink);border-bottom:1px solid var(--hair);}
+  .idx .ct{margin-top:24px;padding-top:18px;border-top:2px solid var(--line);}
+  .idx .ct a{display:flex;align-items:center;gap:9px;padding:7px 0;font-family:var(--head);font-weight:700;font-size:13px;color:var(--ink);border-bottom:1px solid #D9D9DD;}
   .idx .ct a .ic{width:15px;height:15px;flex:none;color:var(--red-d);display:inline-flex;}
   .idx .ct a .ic svg{width:100%;height:100%;display:block;}
   .idx .ct a::after{content:"↗";margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--faint);}
@@ -330,6 +332,23 @@
   function openLb(e){ if(e) e.preventDefault(); document.getElementById('lb').hidden=false; document.body.style.overflow='hidden'; return false; }
   function closeLb(e){ if(e) e.stopPropagation(); document.getElementById('lb').hidden=true; document.body.style.overflow=''; }
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+
+  /* scrollspy: highlight the section currently in view */
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.idx .nav a'));
+    if(!links.length || !('IntersectionObserver' in window)) return;
+    var byId={};
+    links.forEach(function(a){var s=document.querySelector(a.getAttribute('href')); if(s) byId[s.id]=a;});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.remove('active');});
+          if(byId[e.target.id]) byId[e.target.id].classList.add('active');
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    Object.keys(byId).forEach(function(id){io.observe(document.getElementById(id));});
+  })();
 </script>
 </body>
 </html>
