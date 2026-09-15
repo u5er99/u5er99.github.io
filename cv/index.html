@@ -125,32 +125,50 @@
   }
 
   .print-head{display:none;}
+  .print-head .ph-sq{display:inline-block;width:.62em;height:.62em;background:var(--red);margin-right:.34em;vertical-align:.04em;}
   @media print{
     @page{margin:13mm 15mm;}
-    .mast,.idx,footer,.title,.lb,#skill{display:none;}
+    :root{--ink:#000;}
+    .mast,.idx,footer,.title,.lb,#skill,.pweb{display:none!important;}
     html{scroll-behavior:auto;}
-    body{font-size:10pt;line-height:1.42;}
-    /* centered resume header */
-    .print-head{display:block;text-align:center;margin:0 0 13px;padding-bottom:10px;border-bottom:2.5px solid var(--red-d);}
-    .print-head .ph-name{font-family:var(--head);font-weight:900;font-size:21pt;letter-spacing:-.01em;}
-    .print-head .ph-sub{font-family:var(--mono);font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;color:var(--red-d);margin-top:6px;}
-    .print-head .ph-contact{font-family:var(--mono);font-size:8pt;color:#333;margin-top:5px;}
-    /* body single column, Education first, compact */
+    body{font-size:10pt;line-height:1.4;color:#111;}
+
+    /* ---- centered header (with brand square) ---- */
+    .print-head{display:block;text-align:center;margin:0 0 15px;padding-bottom:12px;border-bottom:2.5px solid var(--red-d);}
+    .print-head .ph-name{font-family:var(--head);font-weight:900;font-size:23pt;letter-spacing:-.02em;color:#000;}
+    .print-head .ph-sub{font-family:var(--mono);font-weight:700;font-size:8.5pt;text-transform:uppercase;letter-spacing:.14em;color:var(--red-d);margin-top:7px;}
+    .print-head .ph-contact{font-family:var(--mono);font-size:8pt;color:#555;letter-spacing:.02em;margin-top:6px;}
+
+    /* ---- body: Education first, single column, compact ---- */
     .cv{grid-template-columns:1fr;gap:0;padding:0;}
     .body{display:flex;flex-direction:column;padding-top:0;}
     #edu{order:-1;}
-    .sec{padding-top:0;margin:0;} .sec + .sec{margin-top:14px;}
-    .sec-h{margin-bottom:8px;padding-bottom:3px;border-bottom:1.5px solid var(--red-d);}
+
+    /* ---- section headings: burgundy + brand tick ---- */
+    .sec{padding-top:0;margin:0;} .sec + .sec{margin-top:15px;}
+    .sec-h{margin-bottom:8px;padding-bottom:3px;border-bottom:1.5px solid var(--red-d);gap:0;}
     .sec-h .n{display:none;}
-    .sec-h h2{font-size:12pt;color:var(--red-d);text-transform:uppercase;letter-spacing:.05em;}
-    .ent{padding:5px 0 6px;} .ent .role{font-size:10.5pt;}
-    .ent .org{color:var(--red-d);} .ent .date{color:#333;}
-    .ent .place{color:#555;}
-    .ent ul{margin-top:3px;} .ent ul li{margin:2px 0;}
-    .kv{padding:3px 0;}
+    .sec-h h2{font-size:11.5pt;font-weight:900;color:var(--red-d);text-transform:uppercase;letter-spacing:.1em;}
+    .sec-h h2::before{content:"";display:inline-block;width:7px;height:7px;background:var(--red);margin-right:9px;vertical-align:1.5px;}
+
+    /* ---- entries ---- */
+    .ent{padding:6px 0 7px;}
+    .ent-top{gap:10px;}
+    .ent .role{font-size:10.5pt;font-weight:800;color:#000;}
+    .ent .org{color:var(--red-d);font-weight:700;}
+    .ent .org a{color:var(--red-d);border-bottom:none;}
+    .ent .date{font-family:var(--mono);font-weight:700;font-size:8.5pt;color:#444;letter-spacing:.02em;}
+    .ent .place{font-family:var(--mono);font-size:8pt;color:#666;letter-spacing:.02em;margin-top:2px;}
+    .ent ul{margin-top:4px;padding-left:15px;}
+    .ent ul li{margin:2.5px 0;color:#222;}
+    .ent ul li::marker{color:var(--red);}
+    .ent ul li b{font-weight:800;color:#000;}
+    .ent ul ul{margin:3px 0 2px;padding-left:15px;font-size:9.5pt;}
+    .ent ul ul li{color:#333;}
+    .ent ul ul li::marker{content:"- ";color:#999;}
+
     .sec,.ent{page-break-inside:avoid;}
     a{color:inherit;text-decoration:none;}
-    .ent .org a,.ent a.src{border-bottom:none;color:var(--red-d);}
     .ent .org a::after,.ent a.src::after,.ent a.src.lbtrig::after{content:"";}
   }
 </style>
@@ -158,7 +176,7 @@
 <body>
 
 <div class="print-head" aria-hidden="true">
-  <div class="ph-name">Kim Sanghyeon · 김상현</div>
+  <div class="ph-name"><span class="ph-sq"></span>Kim Sanghyeon · 김상현</div>
   <div class="ph-sub">Blockchain Validator · Infra · Smart-contract Security</div>
   <div class="ph-contact">tkdgusrns456@korea.ac.kr · github.com/u5er99 · linkedin.com/in/kimsh- · x.com/u5er_99</div>
 </div>
@@ -271,7 +289,7 @@
           <div><span class="role"><span class="en">.HACK 2026 Conference Talk</span><span class="ko">.HACK 2026 컨퍼런스 발표</span></span> <span class="org">- <a href="https://dothack.io/session/web302">dothack.io</a></span></div>
           <span class="date">2026.04.08</span>
         </div>
-        <div class="place"><a class="src lbtrig" href="/assets/docs/hack-2026-session.png" onclick="return openLb(event)"><span class="en">Talk session</span><span class="ko">발표 세션</span></a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download><span class="en">Slides</span><span class="ko">발표자료</span> ↓</a></div>
+        <div class="place pweb"><a class="src lbtrig" href="/assets/docs/hack-2026-session.png" onclick="return openLb(event)"><span class="en">Talk session</span><span class="ko">발표 세션</span></a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download><span class="en">Slides</span><span class="ko">발표자료</span> ↓</a></div>
         <ul>
           <li><span class="en">A four-topic talk on prediction-market security - off/on-chain latency abuse, single-oracle dependence, 51% oracle-governance attack, and Opinion overflow trade-blocking.</span><span class="ko">예측시장 보안 <b>4개 주제 발표</b> - 오프체인↔온체인 latency 악용, 정산 단일 데이터소스 의존, 오라클 거버넌스 51% 공격, Opinion Overflow 거래 차단</span></li>
         </ul>
@@ -296,7 +314,7 @@
           <div><span class="role"><span class="en">Prediction-Market Security Guide · Lead</span><span class="ko">예측시장 보안 가이드 · 팀장</span></span> <span class="org">- Upside Academy</span></div>
           <span class="date">2025.08 - 2026.04</span>
         </div>
-        <div class="place"><a class="src" href="https://funarchy.gitbook.io/funarchy"><span class="en">Read the security guide</span><span class="ko">보안 가이드 문서 보기</span></a></div>
+        <div class="place pweb"><a class="src" href="https://funarchy.gitbook.io/funarchy"><span class="en">Read the security guide</span><span class="ko">보안 가이드 문서 보기</span></a></div>
         <ul>
           <li><span class="en"><b>Led the team.</b> Threat-modeled prediction-market protocols - <b>21 vulnerability patterns across 5 security domains</b>, assessing <b>9 live protocols</b> (Polymarket, Opinion, ...).</span><span class="ko"><b>팀장으로 리드.</b> Web3 예측시장 프로토콜을 대상으로 위협 모델링 - <b>5개 보안 영역 × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket·Opinion 등) 진단</span></li>
           <li><span class="en">Found an <b>integer-overflow vulnerability in Opinion's settlement</b> that could block a specific user's trades → PoC · report → <b>$1,000 bug bounty</b>.</span><span class="ko">Opinion 정산의 <b>Integer Overflow로 특정 사용자 거래를 차단하는 취약점 발견</b> → PoC·제보 → 버그바운티 <b>$1,000</b></span></li>
