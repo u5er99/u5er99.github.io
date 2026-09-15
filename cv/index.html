@@ -89,6 +89,8 @@
   .ent ul li{margin:4px 0;}
   .ent ul li::marker{color:var(--red);}
   .ent ul li b{color:var(--ink);font-weight:700;}
+  .ent ul ul{margin:5px 0 2px;padding-left:16px;font-size:13.5px;}
+  .ent ul ul li::marker{content:"– ";color:var(--faint);}
 
   /* expertise rows */
   .kv{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--hair);align-items:start;}
@@ -190,11 +192,13 @@
         </div>
         <div class="place"><span class="en">Full-time · Infra team · Validator operations</span><span class="ko">정규직 · 인프라팀 · 밸리데이터 운영</span></div>
         <ul>
-          <li><span class="en">Operate multi-chain validators (<b>Kaia Governance Council</b> · Avalanche · Celestia) and in-house infrastructure, taken over after ~2 months of handover.</span><span class="ko">멀티체인 밸리데이터(<b>Kaia 거버넌스 카운슬</b> · Avalanche · Celestia)와 사내 인프라 운영 — 사수 인수인계 후 이관</span></li>
-          <li><span class="en">Built consensus/proxy nodes from scratch on two OVH bare-metal servers with <b>RHEL · RAID 5</b>.</span><span class="ko">OVH 베어메탈 2대에 <b>RHEL · RAID 5</b> 구성, consensus·proxy 노드를 from scratch로 구축</span></li>
-          <li><span class="en">Built an <b>AWS bastion</b> (VPC · EIP · multi-AZ · ProxyJump) to remove direct exposure and enforce a single access point (replacing Tailscale).</span><span class="ko"><b>AWS 점프서버</b>(VPC · EIP · AZ 이중화 · ProxyJump) 구축으로 직접 노출 차단·단일 진입점 접근 통제 (Tailscale 대체)</span></li>
-          <li><span class="en"><b>Prometheus·Grafana</b> monitoring with multi-channel alerts; set up an upgrade-tracking process → <b>recovered the Celestia Mocha-5 migration within 4 hours</b>.</span><span class="ko"><b>Prometheus·Grafana</b> 모니터링 + 다중 채널 알림 자동화, 하드포크 대응 체계 정립 → <b>Celestia Mocha-5 전환 4시간 내 복귀</b></span></li>
-          <li><span class="en">Building an in-house <b>Web3/Web2 AI security auditor</b> — LLM-automated smart-contract and web vulnerability review (see Projects).</span><span class="ko">사내 <b>Web3·Web2 AI 보안 Auditor</b> 개발 — 스마트컨트랙트·웹 취약점 감사를 LLM으로 자동화 (아래 프로젝트 참조)</span></li>
+          <li><span class="en">Operate multi-chain validators (<b>Kaia</b> · Avalanche · Celestia) and in-house infrastructure</span><span class="ko">멀티체인 밸리데이터(<b>Kaia</b> · Avalanche · Celestia)와 사내 인프라 운영</span>
+            <ul>
+              <li><span class="en">Built an <b>AWS jump server</b> to remove direct exposure and enforce a single access point</span><span class="ko"><b>AWS JumpServer</b> 구축 — 직접 노출 차단·단일 진입점 접근 통제</span></li>
+              <li><span class="en">Set up <b>Prometheus·Grafana</b> monitoring with multi-channel alerts</span><span class="ko"><b>Prometheus·Grafana</b> 모니터링·다중 채널 알림 구축</span></li>
+            </ul>
+          </li>
+          <li><span class="en">Developing an in-house <b>Web3 AI security auditor</b></span><span class="ko">사내 <b>Web3 AI 보안 Auditor</b> 개발</span></li>
         </ul>
       </div>
 
@@ -242,11 +246,11 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role">Web3·Web2 AI <span class="en">Security Auditor</span><span class="ko">보안 Auditor</span></span> <span class="org">— <a href="https://anam145.io">Anam145</a></span></div>
+          <div><span class="role">Web3 AI <span class="en">Security Auditor</span><span class="ko">보안 Auditor</span></span> <span class="org">— <a href="https://anam145.io">Anam145</a></span></div>
           <span class="date">2026.08 — <span class="en">Present</span><span class="ko">진행 중</span></span>
         </div>
         <ul>
-          <li><span class="en">In-house tool that <b>LLM-automates</b> smart-contract and web vulnerability auditing, detecting recurring patterns catalogued in the prediction-market security research.</span><span class="ko">스마트컨트랙트·웹 취약점 감사를 <b>LLM으로 자동화</b>하는 사내 감사 도구. 예측시장 보안 리서치에서 정리한 취약점 패턴을 기반으로 반복 패턴 탐지를 수행</span></li>
+          <li><span class="en">LLM-automated smart-contract vulnerability auditing, applying patterns from the prediction-market security research.</span><span class="ko">스마트컨트랙트 취약점 감사를 LLM으로 자동화하는 사내 도구. 예측시장 보안 리서치의 취약점 패턴 활용.</span></li>
         </ul>
       </div>
 
