@@ -136,10 +136,11 @@
     <div class="lbl">Index</div>
     <a href="#exp"><span class="n">01</span><span>경력</span></a>
     <a href="#sec"><span class="n">02</span><span>보안·리서치</span></a>
-    <a href="#proj"><span class="n">03</span><span>프로젝트</span></a>
-    <a href="#act"><span class="n">04</span><span>활동·교육</span></a>
-    <a href="#edu"><span class="n">05</span><span>학력</span></a>
-    <a href="#stack"><span class="n">06</span><span>기술</span></a>
+    <a href="#pub"><span class="n">03</span><span>논문·발표</span></a>
+    <a href="#proj"><span class="n">04</span><span>프로젝트</span></a>
+    <a href="#act"><span class="n">05</span><span>활동·교육</span></a>
+    <a href="#edu"><span class="n">06</span><span>학력</span></a>
+    <a href="#stack"><span class="n">07</span><span>기술</span></a>
     <div class="ct">
       Contact<br>
       <a href="mailto:sh.kim@anam145.com">sh.kim@anam145.com</a>
@@ -196,8 +197,7 @@
         <ul>
           <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
           <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
-          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령</li>
-          <li><b>.HACK 컨퍼런스 발표</b> — 4개 주제: 오프체인↔온체인 latency 악용, 정산 단일 데이터소스 의존, 오라클 거버넌스 51% 공격, Opinion Overflow 거래 차단</li>
+          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령 (.HACK 컨퍼런스 발표, 아래 03 참조)</li>
         </ul>
       </div>
 
@@ -225,8 +225,34 @@
       </div>
     </section>
 
+    <section class="sec" id="pub">
+      <div class="sec-h"><span class="n">03</span><h2>논문 · 발표</h2><span class="lab">Publications</span></div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">이더리움 스마트 컨트랙트 환경에서의 PQC 전환 구조적 한계</span> <span class="org">— CISC-S 2026</span></div>
+          <span class="date">2026</span>
+        </div>
+        <div class="place">서베이 논문 · <a class="src" href="/assets/docs/cisc-s-2026-pqc-ethereum.pdf" download>PDF ↓</a></div>
+        <ul>
+          <li>이더리움 스마트 컨트랙트 환경에서 <b>양자내성암호(PQC)</b>로 전환할 때의 구조적 제약을 조사·분석한 서베이 논문</li>
+        </ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">Funarchy 예측시장 보안 가이드 발표</span> <span class="org">— .HACK 2026</span></div>
+          <span class="date">2026</span>
+        </div>
+        <div class="place"><a class="src" href="https://funarchy.gitbook.io/funarchy">gitbook</a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download>발표자료 ↓</a></div>
+        <ul>
+          <li>예측시장 보안 <b>4개 주제 발표</b> — 오프체인↔온체인 latency 악용, 정산 단일 데이터소스 의존, 오라클 거버넌스 51% 공격, Opinion Overflow 거래 차단</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="sec" id="proj">
-      <div class="sec-h"><span class="n">03</span><h2>프로젝트</h2><span class="lab">Projects</span></div>
+      <div class="sec-h"><span class="n">04</span><h2>프로젝트</h2><span class="lab">Projects</span></div>
 
       <div class="ent">
         <div class="ent-top">
@@ -240,7 +266,7 @@
     </section>
 
     <section class="sec" id="act">
-      <div class="sec-h"><span class="n">04</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
+      <div class="sec-h"><span class="n">05</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
 
       <div class="ent">
         <div class="ent-top"><div><span class="role">Cykor 해킹 동아리 · 정회원</span> <span class="org">— 고려대학교</span></div><span class="date">2021.03 — 2022.07</span></div>
@@ -267,7 +293,7 @@
     </section>
 
     <section class="sec" id="edu">
-      <div class="sec-h"><span class="n">05</span><h2>학력</h2><span class="lab">Education</span></div>
+      <div class="sec-h"><span class="n">06</span><h2>학력</h2><span class="lab">Education</span></div>
       <div class="ent">
         <div class="ent-top"><div><span class="role">고려대학교 스마트보안학부</span></div><span class="date">2021.03 입학 — 2027.02 졸업 예정</span></div>
         <div class="place">인공지능보안 · 빅데이터보안 · 재학 중</div>
@@ -279,10 +305,11 @@
     </section>
 
     <section class="sec" id="stack">
-      <div class="sec-h"><span class="n">06</span><h2>기술</h2><span class="lab">Stack</span></div>
+      <div class="sec-h"><span class="n">07</span><h2>기술 · 자격</h2><span class="lab">Stack</span></div>
       <div class="kv"><div class="kk">Infra</div><div class="vv chips"><span>Linux / RHEL</span><span>AWS (EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>RAID</span></div></div>
       <div class="kv"><div class="kk">Security</div><div class="vv chips"><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA / Ghidra</span><span>Threat Modeling</span></div></div>
       <div class="kv"><div class="kk">Lang</div><div class="vv chips"><span>Python</span><span>C</span><span>Solidity</span><span>Git</span></div></div>
+      <div class="kv"><div class="kk">자격증</div><div class="vv">네트워크 관리사 2급</div></div>
       <div class="kv"><div class="kk">Focus</div><div class="vv">블록체인 인프라 · 스마트컨트랙트 보안 · 시스템·바이너리 익스플로잇 · AI × 보안</div></div>
     </section>
 
