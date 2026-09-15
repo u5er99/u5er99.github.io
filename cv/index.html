@@ -46,16 +46,16 @@
 
   /* layout: sticky index + body */
   .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:170px 1fr;gap:52px;align-items:start;}
-  .idx{position:sticky;top:88px;padding:22px 22px 18px;background:#F4F4F6;border:2px solid var(--line);border-left:5px solid var(--red);}
-  .idx .lbl{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px;}
-  .idx .nav a{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);padding:7px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid #D9D9DD;transition:color .15s;}
+  .idx{position:sticky;top:96px;padding-top:40px;}
+  .idx .lbl{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
+  .idx .nav a{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--sec);padding:6px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--hair);transition:color .15s;}
   .idx .nav a .n{color:var(--red-d);}
   .idx .nav a:hover{color:var(--red-d);}
   .idx .nav a.active{color:var(--red-d);}
   .idx .nav a.active::after{content:"";margin-left:auto;width:7px;height:7px;background:var(--red);border-radius:50%;}
 
-  .idx .ct{margin-top:24px;padding-top:18px;border-top:2px solid var(--line);}
-  .idx .ct a{display:flex;align-items:center;gap:9px;padding:7px 0;font-family:var(--head);font-weight:700;font-size:13px;color:var(--ink);border-bottom:1px solid #D9D9DD;}
+  .idx .ct{margin-top:28px;padding-top:20px;border-top:2px solid var(--line);}
+  .idx .ct a{display:flex;align-items:center;gap:9px;padding:7px 0;font-family:var(--head);font-weight:700;font-size:13px;color:var(--ink);border-bottom:1px solid var(--hair);}
   .idx .ct a .ic{width:15px;height:15px;flex:none;color:var(--red-d);display:inline-flex;}
   .idx .ct a .ic svg{width:100%;height:100%;display:block;}
   .idx .ct a::after{content:"↗";margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--faint);}
@@ -219,7 +219,7 @@
           <div><span class="role"><span class="en">Structural Limits of PQC Migration in Ethereum Smart Contracts</span><span class="ko">이더리움 스마트 컨트랙트 환경에서의 PQC 전환 구조적 한계</span></span> <span class="org">— <a href="https://www.cisc.or.kr">CISC-S 2026</a></span></div>
           <span class="date todo">2026.01.13 — ?</span>
         </div>
-        <div class="place"><span class="en">Survey paper</span><span class="ko">서베이 논문</span></div>
+        <div class="place"><span class="en">Survey paper · 3rd of 5 authors</span><span class="ko">서베이 논문 · 공저 5인 중 3저자</span></div>
         <ul>
           <li><span class="en">A survey analyzing the structural constraints of migrating Ethereum smart-contract environments to <b>post-quantum cryptography (PQC)</b>.</span><span class="ko">이더리움 스마트 컨트랙트 환경에서 <b>양자내성암호(PQC)</b>로 전환할 때의 구조적 제약을 조사·분석한 서베이 논문</span></li>
         </ul>
