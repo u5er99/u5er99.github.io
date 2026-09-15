@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV — 김상현 (Kim SangHyeon)</title>
-<meta name="description" content="김상현 이력 · 블록체인 밸리데이터/인프라 · 스마트컨트랙트·시스템 보안">
+<meta name="description" content="김상현 이력 · 블록체인 밸리데이터/인프라 · 스마트컨트랙트 보안">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
@@ -45,9 +45,11 @@
   .idx a{display:flex;gap:9px;align-items:baseline;font-family:var(--mono);font-size:12.5px;color:var(--sec);padding:5px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--hair);}
   .idx a .n{color:var(--red-d);font-weight:700;}
   .idx a:hover{color:var(--red-d);}
-  .idx .ct{margin-top:26px;font-family:var(--mono);font-size:12px;line-height:2;color:var(--sec);}
-  .idx .ct a{display:block;border:none;padding:0;color:var(--red-d);}
-  .idx .ct a:hover{color:var(--ink);}
+  .idx .ct{margin-top:28px;padding-top:20px;border-top:2px solid var(--line);}
+  .idx .ct .lbl{margin-bottom:10px;}
+  .idx .ct a{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border:none;padding:6px 0;font-family:var(--head);font-weight:700;font-size:13px;color:var(--ink);text-transform:none;letter-spacing:0;border-bottom:1px solid var(--hair);}
+  .idx .ct a::after{content:"↗";font-family:var(--mono);font-size:11px;color:var(--red-d);}
+  .idx .ct a:hover{color:var(--red-d);}
 
   .body{min-width:0;padding-top:40px;}
 
@@ -129,8 +131,8 @@
 <section class="title">
   <div class="k">Curriculum Vitae</div>
   <h1>김상현<span class="r">.</span></h1>
-  <div class="sub">Blockchain Validator · Infra · Smart-contract &amp; System Security</div>
-  <p class="lede">블록체인 밸리데이터·인프라를 <b>단독으로 구축·운영</b>하고, 스마트컨트랙트와 시스템 보안을 연구합니다. 취약점을 직접 분석해 <b>PoC로 증명</b>하고, 그 과정을 코드와 글로 남깁니다.</p>
+  <div class="sub">Blockchain Validator · Infra · Smart-contract Security</div>
+  <p class="lede">블록체인 밸리데이터·인프라를 <b>단독으로 운영</b>하고, <b>스마트컨트랙트 보안</b>을 연구합니다.</p>
 </section>
 
 <div class="cv">
@@ -144,11 +146,11 @@
     <a href="#act"><span class="n">05</span><span>활동·교육</span></a>
     <a href="#edu"><span class="n">06</span><span>학력</span></a>
     <div class="ct">
-      Contact<br>
-      <a href="mailto:sh.kim@anam145.com">sh.kim@anam145.com</a>
-      <a href="https://github.com/u5er99">github.com/u5er99</a>
-      <a href="https://www.linkedin.com/in/kimsh-">linkedin.com/in/kimsh-</a>
-      <a href="https://x.com/u5er_99">@u5er_99</a>
+      <div class="lbl">Contact</div>
+      <a href="mailto:sh.kim@anam145.com">Email</a>
+      <a href="https://github.com/u5er99">GitHub</a>
+      <a href="https://www.linkedin.com/in/kimsh-">LinkedIn</a>
+      <a href="https://x.com/u5er_99">X</a>
     </div>
   </nav>
 
@@ -157,10 +159,10 @@
 
     <section class="sec" id="skill">
       <div class="sec-h"><span class="n">01</span><h2>전문 분야 · 기술</h2><span class="lab">Expertise</span></div>
-      <div class="kv"><div class="kk">관심 분야</div><div class="vv">블록체인 인프라 · 스마트컨트랙트 보안 · 시스템·바이너리 익스플로잇 · AI × 보안</div></div>
-      <div class="kv"><div class="kk">Infra</div><div class="vv chips"><span>Linux / RHEL</span><span>AWS (EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>RAID</span></div></div>
-      <div class="kv"><div class="kk">Security</div><div class="vv chips"><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA / Ghidra</span><span>Threat Modeling</span></div></div>
-      <div class="kv"><div class="kk">Lang</div><div class="vv chips"><span>Python</span><span>C</span><span>Solidity</span><span>Git</span></div></div>
+      <div class="kv"><div class="kk">관심 분야</div><div class="vv">블록체인 인프라 · 스마트컨트랙트 보안 · AI 기반 보안 감사</div></div>
+      <div class="kv"><div class="kk">Infra</div><div class="vv">Linux/RHEL · AWS (EC2·VPC·EIP) · OVH Bare Metal · Prometheus · Grafana · RAID</div></div>
+      <div class="kv"><div class="kk">Security</div><div class="vv">Solidity · pwntools · gdb · IDA/Ghidra · Threat Modeling</div></div>
+      <div class="kv"><div class="kk">Lang</div><div class="vv">Python · C · Solidity · Git</div></div>
       <div class="kv"><div class="kk">자격증</div><div class="vv">네트워크 관리사 2급</div></div>
     </section>
 
@@ -172,14 +174,13 @@
           <div><span class="role">블록체인 밸리데이터 · 인프라 엔지니어</span> <span class="org">— <a href="https://anam145.io">Anam145</a></span></div>
           <span class="date">2026.05 — 현재</span>
         </div>
-        <div class="place">인프라팀 · 밸리데이터 · 단독 운영</div>
+        <div class="place">정규직 · 인프라팀 · 밸리데이터 단독 운영</div>
         <ul>
-          <li>사수에게 약 2개월 인수인계 후 <b>단독으로</b> 멀티체인 밸리데이터(Kaia 거버넌스 카운슬 · Avalanche · Celestia)와 사내 서버 인프라를 운영·관리</li>
-          <li>Kaia 요구사양이 사내 서버를 초과 → <b>OVH 베어메탈 2대 신규 임대</b>, RHEL 설치, consensus·proxy 노드를 from scratch로 구축·초기 동기화</li>
-          <li><b>RAID 5 스토리지 구성</b> — 디스크 4장을 OS 1 + 데이터 3으로 분리, 단일 디스크 장애에도 무중단(다운타임은 밸리데이터 평가에 직결)이라는 근거로 미러링·스트라이핑 대비 균형점으로 채택</li>
-          <li>SSH·방화벽·<b>FIDO 하드웨어 보안키</b>로 서버 하드닝, node_exporter 배포. <b>Prometheus·Grafana</b> 대시보드 + <b>Slack·Discord·Telegram 다중 채널 알림</b> 자동화, 전 과정을 Notion runbook으로 문서화</li>
-          <li><b>AWS 점프서버(Bastion) 구축</b> — 모뎀에 직접 노출돼 있던 서버를 정리(기존 Tailscale 제거). VPC public 서브넷 · 탄력적 IP · <b>서로 다른 AZ 이중화</b> · SSH ProxyJump로 단일 진입점 접근 통제, Security Group을 회사 IP로 제한, SSH 로그인 시 계정·source IP를 Slack으로 통지해 접근 감사</li>
-          <li><b>장애 대응·재발 방지</b> — Avalanche 테스트넷 하드포크 업그레이드를 놓쳐 노드가 포크 이후 체인과 어긋남(재동기화 5일). 이후 Discord 공지·GitHub Releases 상시 감시 체계를 세우고 1차 대응 순서를 runbook화 → <b>Celestia Mocha-5 전환을 조기 포착해 4시간 내 정상 복귀</b></li>
+          <li>멀티체인 밸리데이터(<b>Kaia 거버넌스 카운슬</b> · Avalanche · Celestia)와 사내 인프라를 <b>단독 운영</b> — 사수 인수인계 후 이관</li>
+          <li>OVH 베어메탈 2대에 <b>RHEL · RAID 5</b> 구성, consensus·proxy 노드를 from scratch로 구축</li>
+          <li><b>AWS 점프서버</b>(VPC · EIP · AZ 이중화 · ProxyJump) 구축으로 직접 노출 차단·단일 진입점 접근 통제 (Tailscale 대체)</li>
+          <li><b>Prometheus·Grafana</b> 모니터링 + 다중 채널 알림 자동화, 하드포크 대응 체계 정립 → <b>Celestia Mocha-5 전환 4시간 내 복귀</b></li>
+          <li>사내 <b>Web3·Web2 AI 보안 Auditor</b> 개발 — 스마트컨트랙트·웹 취약점 감사를 LLM으로 자동화 (아래 프로젝트 참조)</li>
         </ul>
       </div>
 
@@ -212,10 +213,10 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role">.HACK 2026 컨퍼런스 발표</span> <span class="org">— <a href="https://dothack.io">dothack.io</a></span></div>
+          <div><span class="role">.HACK 2026 컨퍼런스 발표</span> <span class="org">— <a href="https://dothack.io/session/web302">dothack.io</a></span></div>
           <span class="date">2026</span>
         </div>
-        <div class="place">예측시장 보안 · <a class="src" href="https://funarchy.gitbook.io/funarchy">gitbook</a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download>발표자료 ↓</a></div>
+        <div class="place">예측시장 보안 · <a class="src" href="/assets/docs/hack-2026-session.jpg">세션 캡처</a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download>발표자료 ↓</a></div>
         <ul>
           <li>예측시장 보안 <b>4개 주제 발표</b> — 오프체인↔온체인 latency 악용, 정산 단일 데이터소스 의존, 오라클 거버넌스 51% 공격, Opinion Overflow 거래 차단</li>
         </ul>
@@ -227,11 +228,11 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role">LLM Auditor (Web2 · Web3)</span> <span class="org">— 보안 감사 도구</span></div>
+          <div><span class="role">Web3·Web2 AI 보안 Auditor</span> <span class="org">— <a href="https://anam145.io">Anam145</a></span></div>
           <span class="date">2026.08 — 진행 중</span>
         </div>
         <ul>
-          <li>스마트컨트랙트·웹 취약점 감사에 LLM을 활용하는 감사 보조 도구. 예측시장 보안 리서치에서 정리한 취약점 패턴을 바탕으로 반복 패턴 탐지를 자동화</li>
+          <li>스마트컨트랙트·웹 취약점 감사를 <b>LLM으로 자동화</b>하는 사내 감사 도구. 예측시장 보안 리서치에서 정리한 취약점 패턴을 기반으로 반복 패턴 탐지를 수행</li>
         </ul>
       </div>
 
@@ -242,9 +243,8 @@
         </div>
         <div class="place">Team Lead · <a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
         <ul>
-          <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
-          <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
-          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령</li>
+          <li><b>팀장</b>으로 리드. Web3 예측시장 프로토콜을 대상으로 위협 모델링 — <b>5개 보안 영역 × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket·Opinion 등) 진단</li>
+          <li>Opinion 정산의 <b>Integer Overflow로 특정 사용자 거래를 차단하는 취약점 발견</b> → PoC·제보 → 버그바운티 <b>$1,000</b></li>
         </ul>
       </div>
     </section>
@@ -253,9 +253,8 @@
       <div class="sec-h"><span class="n">05</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
 
       <div class="ent">
-        <div class="ent-top"><div><span class="role">블록체인 밸리 · 리서치팀</span> <span class="org">— <a href="https://medium.com/blockchain-valley">블록체인 학회</a></span></div><span class="date">2026.03 — 현재</span></div>
-        <div class="place"><a class="src" href="https://medium.com/blockchain-valley">medium.com/blockchain-valley</a></div>
-        <ul><li><b>RWA(실물자산 토큰화)</b>를 온체인에 반영할 때 오라클이 갖는 신뢰 문제를 분석해 기고 — <a class="src" href="https://medium.com/blockchain-valley/rwa%EC%99%80-%EC%98%A4%EB%9D%BC%ED%81%B4%EC%9D%98%EA%B7%BC%EB%B3%B8%EC%A0%81-%EB%AA%A8%EC%88%9C-13ea5aaf6bf0">RWA와 오라클의 근본적 모순</a></li></ul>
+        <div class="ent-top"><div><span class="role">블록체인 밸리 · 리서치 → 개발팀</span> <span class="org">— <a href="https://medium.com/blockchain-valley">medium</a></span></div><span class="date">2026.03 — 현재</span></div>
+        <ul><li>리서치팀에서 <b>RWA(실물자산 토큰화)</b>와 오라클의 신뢰 문제를 분석해 기고 (<a class="src" href="https://medium.com/blockchain-valley/rwa%EC%99%80-%EC%98%A4%EB%9D%BC%ED%81%B4%EC%9D%98%EA%B7%BC%EB%B3%B8%EC%A0%81-%EB%AA%A8%EC%88%9C-13ea5aaf6bf0">RWA와 오라클의 근본적 모순</a>). 현재 개발팀 소속</li></ul>
       </div>
 
       <div class="ent">
