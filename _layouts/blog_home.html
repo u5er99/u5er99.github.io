@@ -59,16 +59,20 @@
   footer .in .soc a:not(:last-child)::after{content:"/";margin:0 8px;color:#B4B4B8;font-weight:400;}
   footer .in .soc a svg{width:14px;height:14px;}
   .navbtns{display:flex;gap:10px;}
-  .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center;}
+  .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:start;}
   @media(max-width:680px){.hero-grid{grid-template-columns:1fr;gap:24px;}}
   .photo{aspect-ratio:1;width:100%;background:var(--grid);border:3px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.7;overflow:hidden;}
   .photo img{width:100%;height:100%;object-fit:cover;}
-  .about .intro{font-family:var(--head);font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 0;}
+  .about .intro{font-family:var(--head);font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.05;letter-spacing:-.02em;margin:2px 0 0;}
   .about .intro .r{color:var(--red);}
-  .about .lede{color:var(--muted);font-size:16px;margin:16px 0 0;max-width:46ch;line-height:1.8;}
-  .about .lede b{color:var(--ink);font-weight:600;}
-  .about .tagline{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin:22px 0 0;}
-  .about .tagline .e{color:var(--red-d);}
+  .about-cols{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;margin-top:20px;align-items:start;}
+  @media(max-width:780px){.about-cols{grid-template-columns:1fr;gap:22px;}}
+  .about-cols .lede{color:var(--muted);font-size:15.5px;margin:0;line-height:1.8;}
+  .about-cols .lede b{color:var(--ink);font-weight:700;}
+  .about .facts{margin:0;display:flex;flex-direction:column;gap:15px;border-left:1px solid var(--grid);padding-left:22px;}
+  .about .facts .f dt{font-family:var(--mono);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-d);}
+  .about .facts .f dd{margin:4px 0 0;font-size:13.5px;color:var(--ink);line-height:1.45;}
+  @media(max-width:780px){.about .facts{border-left:none;padding-left:0;}}
 </style>
 </head>
 <body>
@@ -82,8 +86,14 @@
   <div class="photo"><span>PHOTO<br><small>사진 자리</small></span></div>
   <div class="about">
     <h1 class="intro">김상현<span class="r">.</span></h1>
-    <p class="lede">고려대학교 스마트보안학부에 재학하며 <b>Anam145</b>에서 블록체인 밸리데이터·인프라를 운영하고 있습니다. <b>스마트컨트랙트 보안</b>과 블록체인 인프라를 깊게 파고드는 보안 엔지니어가 되는 것이 목표입니다.</p>
-    <p class="tagline">Validator · Infra · <span class="e">Smart-contract Security</span></p>
+    <div class="about-cols">
+      <p class="lede">고려대학교 스마트보안학부에 재학하며 <b>Anam145</b>에서 블록체인 밸리데이터와 인프라를 운영하고 있습니다. <b>스마트컨트랙트 보안</b>과 블록체인 인프라를 깊게 파고들며, 직접 부딪혀 배운 것과 리서치를 여기에 기록합니다.</p>
+      <dl class="facts">
+        <div class="f"><dt>Now</dt><dd>Anam145 · 블록체인 밸리데이터·인프라</dd></div>
+        <div class="f"><dt>Edu</dt><dd>고려대학교 스마트보안학부 · 재학</dd></div>
+        <div class="f"><dt>Focus</dt><dd>스마트컨트랙트 보안 · 블록체인 인프라 · AI 보안</dd></div>
+      </dl>
+    </div>
   </div>
 </div></section>
 
