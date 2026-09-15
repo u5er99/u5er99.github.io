@@ -26,20 +26,23 @@
   .mast .in{max-width:1040px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;}
   .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
   .mast .id .sq{width:13px;height:13px;background:var(--red);}
-  .mast .tools{display:flex;gap:9px;}
   .mast .btn{font-family:var(--mono);font-weight:700;font-size:12px;border:2px solid var(--ink);padding:8px 13px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:none;color:var(--ink);}
   .mast .btn:hover{background:var(--ink);color:#fff;}
-  .mast .btn.lang{border-color:var(--red-d);color:var(--red-d);}
-  .mast .btn.lang:hover{background:var(--red-d);color:#fff;}
-  @media(max-width:520px){.mast .btn.pdf{display:none;}}
 
   /* title block */
-  .title{max-width:1040px;margin:0 auto;padding:50px 32px 30px;border-bottom:3px solid var(--line);}
+  .title{max-width:1040px;margin:0 auto;padding:50px 32px 22px;border-bottom:3px solid var(--line);}
   .title h1{font-weight:900;font-size:clamp(44px,8.5vw,86px);line-height:.92;letter-spacing:-.03em;margin:0 0 8px;}
   .title h1 .r{color:var(--red);}
   .title .sub{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.05em;}
-  .title .lede{margin:20px 0 0;max-width:64ch;font-size:16.5px;color:var(--muted);line-height:1.7;}
-  .title .lede b{color:var(--ink);font-weight:700;}
+  .title-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:22px;flex-wrap:wrap;}
+  .title-foot .lede{margin:0;flex:1 1 360px;max-width:62ch;font-size:16.5px;color:var(--muted);line-height:1.65;}
+  .title-foot .lede b{color:var(--ink);font-weight:700;}
+  .title-foot .acts{display:flex;gap:9px;flex:none;}
+  .title .btn{font-family:var(--mono);font-weight:700;font-size:12px;border:2px solid var(--ink);padding:8px 13px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:none;color:var(--ink);white-space:nowrap;}
+  .title .btn:hover{background:var(--ink);color:#fff;}
+  .title .btn.lang{border-color:var(--red-d);color:var(--red-d);}
+  .title .btn.lang:hover{background:var(--red-d);color:#fff;}
+  @media(max-width:520px){.title .btn.pdf{display:none;}}
 
   /* layout: sticky index + body */
   .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:170px 1fr;gap:52px;align-items:start;}
@@ -127,17 +130,19 @@
 
 <header class="mast"><div class="in">
   <a class="id" href="/"><span class="sq"></span>u5er99</a>
-  <div class="tools">
-    <button class="btn lang" id="langBtn" onclick="toggleLang()">한국어</button>
-    <button class="btn pdf" onclick="window.print()">Print / PDF</button>
-    <a class="btn" href="/">← Blog</a>
-  </div>
+  <a class="btn" href="/">← Blog</a>
 </div></header>
 
 <section class="title">
   <h1><span class="en">Kim Sanghyeon</span><span class="ko">김상현</span><span class="r">.</span></h1>
   <div class="sub"><span class="en">Blockchain Validator · Infra · Smart-contract Security</span><span class="ko">블록체인 밸리데이터 · 인프라 · 스마트컨트랙트 보안</span></div>
-  <p class="lede"><span class="en">I run blockchain validators and infrastructure, and research <b>smart-contract security</b>.</span><span class="ko">블록체인 밸리데이터·인프라를 운영하고, <b>스마트컨트랙트 보안</b>을 연구합니다.</span></p>
+  <div class="title-foot">
+    <p class="lede"><span class="en">I operate blockchain validators and infrastructure, and research <b>smart-contract security</b>.</span><span class="ko">블록체인 밸리데이터·인프라를 운영하고, <b>스마트컨트랙트 보안</b>을 연구합니다.</span></p>
+    <div class="acts">
+      <button class="btn lang" id="langBtn" onclick="toggleLang()">한국어</button>
+      <button class="btn pdf" onclick="window.print()">Print / PDF</button>
+    </div>
+  </div>
 </section>
 
 <div class="cv">
