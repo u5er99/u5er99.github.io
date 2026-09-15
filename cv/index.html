@@ -137,12 +137,11 @@
   <nav class="idx">
     <div class="lbl">Index</div>
     <a href="#exp"><span class="n">01</span><span>경력</span></a>
-    <a href="#sec"><span class="n">02</span><span>보안·리서치</span></a>
-    <a href="#pub"><span class="n">03</span><span>논문·발표</span></a>
-    <a href="#proj"><span class="n">04</span><span>프로젝트</span></a>
-    <a href="#act"><span class="n">05</span><span>활동·교육</span></a>
-    <a href="#edu"><span class="n">06</span><span>학력</span></a>
-    <a href="#stack"><span class="n">07</span><span>기술</span></a>
+    <a href="#pub"><span class="n">02</span><span>논문·발표</span></a>
+    <a href="#proj"><span class="n">03</span><span>프로젝트</span></a>
+    <a href="#act"><span class="n">04</span><span>활동·교육</span></a>
+    <a href="#edu"><span class="n">05</span><span>학력</span></a>
+    <a href="#stack"><span class="n">06</span><span>기술</span></a>
     <div class="ct">
       Contact<br>
       <a href="mailto:sh.kim@anam145.com">sh.kim@anam145.com</a>
@@ -187,48 +186,8 @@
       </div>
     </section>
 
-    <section class="sec" id="sec">
-      <div class="sec-h"><span class="n">02</span><h2>보안 · 리서치</h2><span class="lab">Security</span></div>
-
-      <div class="ent">
-        <div class="ent-top">
-          <div><span class="role">우리콘 — 인터넷뱅킹 모의해킹 경진대회</span> <span class="org">— 진행 중</span></div>
-          <span class="date">2026 · 6회</span>
-        </div>
-        <ul>
-          <li>Web2 취약점 헌팅에 <b>AI 에이전트 자동화</b> 도입 — Agent.md · SKILL.md로 헌팅 로직을 정의하고 codex exec으로 자동 실행하는 파이프라인 구성</li>
-          <li>공격면별로 에이전트를 <b>역할 분리</b> — 정찰 · 인증/인가(IDOR) · 거래 로직 · SQLi · 파일 업로드 · 검증 · 리포트로 나눠 오탐을 걸러내는 헌팅→검증 구조 설계</li>
-        </ul>
-      </div>
-
-      <div class="ent">
-        <div class="ent-top">
-          <div><span class="role">소프트웨어보안 — 다중 취약점 연계 익스플로잇</span> <span class="org">— 전공 프로젝트</span></div>
-          <span class="date">2026-1학기</span>
-        </div>
-        <ul>
-          <li><b>Stage4</b>: Race Condition(잔액 검사 우회) + unsigned 정수 underflow(잔액 거대화) + 구조체 OOB Write(인접 검증 변수 덮기) + 검증 로직 허점을 <b>연계</b>해 flag 획득</li>
-          <li><b>Stage3</b>: 무한 입력으로 전역 변수(access_level · secret_token)를 덮어 권한 우회 + 포맷 스트링. pwntools로 익스플로잇 작성</li>
-          <li>기반 기법: 버퍼 오버플로우 · 셸코드 RCE · 포맷 스트링 · ROP (pwntools / gdb / IDA · Ghidra)</li>
-        </ul>
-      </div>
-
-      <div class="ent">
-        <div class="ent-top">
-          <div><span class="role">Funarchy — 예측시장 보안 가이드 · 팀장</span> <span class="org">— Upside Academy</span></div>
-          <span class="date">2025.08 — 2025.12</span>
-        </div>
-        <div class="place">Team Lead · <a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
-        <ul>
-          <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
-          <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
-          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령 (.HACK 컨퍼런스 발표, 아래 03 참조)</li>
-        </ul>
-      </div>
-    </section>
-
     <section class="sec" id="pub">
-      <div class="sec-h"><span class="n">03</span><h2>논문 · 발표</h2><span class="lab">Publications</span></div>
+      <div class="sec-h"><span class="n">02</span><h2>논문 · 발표</h2><span class="lab">Publications</span></div>
 
       <div class="ent">
         <div class="ent-top">
@@ -243,7 +202,7 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role">Funarchy 예측시장 보안 가이드 발표</span> <span class="org">— .HACK 2026</span></div>
+          <div><span class="role">예측시장 보안 가이드 발표</span> <span class="org">— .HACK 2026</span></div>
           <span class="date">2026</span>
         </div>
         <div class="place"><a class="src" href="https://funarchy.gitbook.io/funarchy">gitbook</a> · <a class="src" href="/assets/docs/hack-2026-funarchy.pdf" download>발표자료 ↓</a></div>
@@ -254,7 +213,7 @@
     </section>
 
     <section class="sec" id="proj">
-      <div class="sec-h"><span class="n">04</span><h2>프로젝트</h2><span class="lab">Projects</span></div>
+      <div class="sec-h"><span class="n">03</span><h2>프로젝트</h2><span class="lab">Projects</span></div>
 
       <div class="ent">
         <div class="ent-top">
@@ -262,13 +221,26 @@
           <span class="date">2026.08 — 진행 중</span>
         </div>
         <ul>
-          <li>스마트컨트랙트·웹 취약점 감사에 LLM을 활용하는 감사 보조 도구. Funarchy 보안 리서치에서 정리한 취약점 패턴을 바탕으로 반복 패턴 탐지를 자동화</li>
+          <li>스마트컨트랙트·웹 취약점 감사에 LLM을 활용하는 감사 보조 도구. 예측시장 보안 리서치에서 정리한 취약점 패턴을 바탕으로 반복 패턴 탐지를 자동화</li>
+        </ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">예측시장 보안 가이드 · 팀장</span> <span class="org">— <a href="https://upside.center">Upside Academy</a></span></div>
+          <span class="date">2025.08 — 2025.12</span>
+        </div>
+        <div class="place">Team Lead · <a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
+        <ul>
+          <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
+          <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
+          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령</li>
         </ul>
       </div>
     </section>
 
     <section class="sec" id="act">
-      <div class="sec-h"><span class="n">05</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
+      <div class="sec-h"><span class="n">04</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
 
       <div class="ent">
         <div class="ent-top"><div><span class="role">블록체인 밸리 · 리서치팀</span> <span class="org">— 블록체인 학회</span></div><span class="date">2026.03 — 현재</span></div>
@@ -276,7 +248,7 @@
       </div>
 
       <div class="ent">
-        <div class="ent-top"><div><span class="role">Upside Academy</span> <span class="org">— Web3 보안</span></div><span class="date">2025.08 — 2025.12</span></div>
+        <div class="ent-top"><div><span class="role">Upside Academy</span> <span class="org">— <a href="https://upside.center">Web3 보안 부트캠프</a></span></div><span class="date">2025.08 — 2025.12</span></div>
         <ul><li>Web3 보안 부트캠프 · 결과물 Funarchy 예측시장 보안 가이드 (회고: 블로그 “End of Upside”, 2025.12)</li></ul>
       </div>
 
@@ -295,7 +267,7 @@
     </section>
 
     <section class="sec" id="edu">
-      <div class="sec-h"><span class="n">06</span><h2>학력</h2><span class="lab">Education</span></div>
+      <div class="sec-h"><span class="n">05</span><h2>학력</h2><span class="lab">Education</span></div>
       <div class="ent">
         <div class="ent-top"><div><span class="role">고려대학교 스마트보안학부</span></div><span class="date">2021.03 입학 — 2027.02 졸업 예정</span></div>
         <div class="place">인공지능보안 · 빅데이터보안 · 재학 중</div>
@@ -307,7 +279,7 @@
     </section>
 
     <section class="sec" id="stack">
-      <div class="sec-h"><span class="n">07</span><h2>기술 · 자격</h2><span class="lab">Stack</span></div>
+      <div class="sec-h"><span class="n">06</span><h2>기술 · 자격</h2><span class="lab">Stack</span></div>
       <div class="kv"><div class="kk">Infra</div><div class="vv chips"><span>Linux / RHEL</span><span>AWS (EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>RAID</span></div></div>
       <div class="kv"><div class="kk">Security</div><div class="vv chips"><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA / Ghidra</span><span>Threat Modeling</span></div></div>
       <div class="kv"><div class="kk">Lang</div><div class="vv chips"><span>Python</span><span>C</span><span>Solidity</span><span>Git</span></div></div>
