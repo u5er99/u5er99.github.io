@@ -37,7 +37,7 @@
   .section{display:grid;grid-template-columns:64px 1fr;}
   @media(max-width:680px){.section{grid-template-columns:1fr;}}
   .vlabel{border-right:1px solid var(--grid);display:flex;align-items:flex-start;justify-content:center;padding-top:26px;}
-  .vlabel span{writing-mode:vertical-rl;font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);}
+  .vlabel span{writing-mode:vertical-rl;font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#3A3A40;}
   @media(max-width:680px){.vlabel{border-right:none;border-bottom:1px solid var(--grid);padding:8px 0;}.vlabel span{writing-mode:horizontal-tb;}}
   .item{display:grid;grid-template-columns:120px 1fr 130px;gap:20px;padding:30px 28px;border-bottom:1px solid var(--grid);align-items:start;transition:background .15s;}
   .item:hover{background:#fff;}
@@ -47,8 +47,8 @@
   .item h2{font-family:var(--head);font-weight:800;font-size:clamp(24px,3.6vw,34px);line-height:1.06;letter-spacing:-.02em;margin:0 0 8px;}
   .item:hover h2{color:var(--red-d);}
   .item p{color:var(--muted);font-size:14px;margin:0;max-width:52ch;}
-  .item .rt{font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase;text-align:right;letter-spacing:.06em;line-height:1.7;}
-  .item .rt .c{color:var(--red-d);display:block;}
+  .item .rt{font-family:var(--mono);font-weight:700;font-size:12.5px;color:#33333A;text-transform:uppercase;text-align:right;letter-spacing:.04em;line-height:1.6;}
+  .item .rt .c{color:var(--red-d);display:block;margin-top:5px;}
   @media(max-width:760px){.item .rt{text-align:left;}}
   footer{border-top:3px solid var(--line);}
   footer .in{max-width:1080px;margin:0 auto;padding:26px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--mono);font-size:13px;font-weight:700;color:#33333A;text-transform:uppercase;letter-spacing:.03em;}
@@ -78,7 +78,7 @@
   <div class="photo"><span>PHOTO<br><small>사진 자리</small></span></div>
   <div class="about">
     <h1 class="intro">김상현<span class="r">.</span></h1>
-    <p class="lede">보안이 어려워 보여서 <b>재미로</b> 시작했고, 지금은 <b>web3 보안과 블록체인 인프라</b>를 판다. 직접 당해보고 코드를 뜯어보며 배운 걸 여기 남긴다.</p>
+    <p class="lede">어려워 보이는 걸 <b>재미로</b> 파고드는 편이다. 러그풀을 직접 뜯고 밸리데이터 노드를 굴리다 <b>web3 보안과 블록체인 인프라</b>에 왔고, 그 과정을 여기 남긴다.</p>
     <p class="tagline">Validator · Infra · <span class="e">Smart-contract Security</span></p>
   </div>
 </div></section>
