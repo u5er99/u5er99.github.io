@@ -4,116 +4,312 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV — 김상현 (Kim SangHyeon)</title>
-<meta name="description" content="김상현 이력 · 블록체인 밸리데이터/인프라 · 시스템·스마트컨트랙트 보안">
+<meta name="description" content="김상현 이력 · 블록체인 밸리데이터/인프라 · 스마트컨트랙트·시스템 보안">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
 <style>
-  :root{--bg:#FCFCFC; --ink:#0C0C0D; --muted:#6A6A6E; --faint:#A6A6AA; --line:#0C0C0D; --grid:#E6E6E8;
+  :root{--bg:#FCFCFC; --ink:#0C0C0D; --muted:#45454B; --sec:#33333A; --line:#0C0C0D; --grid:#E4E4E6; --hair:#EDEDEF;
     --red:#E62534; --red-d:#C11B29;
     --head:"Gothic A1",ui-sans-serif,system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;}
   *{box-sizing:border-box;}
-  html{color-scheme:light;}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  html{color-scheme:light;scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);font-weight:400;font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
   a{color:inherit;text-decoration:none;}
-  .mast{border-bottom:3px solid var(--line);}
-  .mast .in{max-width:900px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;}
+
+  /* masthead */
+  .mast{border-bottom:3px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;}
+  .mast .in{max-width:1040px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;}
   .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
   .mast .id .sq{width:13px;height:13px;background:var(--red);}
-  .mast .back{font-family:var(--mono);font-size:12px;border:2px solid var(--ink);padding:8px 15px;text-transform:uppercase;}
-  .mast .back:hover{background:var(--ink);color:#fff;}
-  .wrap{max-width:900px;margin:0 auto;padding:0 28px 70px;}
-  .title{border-bottom:3px solid var(--line);padding:46px 0 26px;}
-  .title .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red-d);}
-  .title h1{font-weight:900;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:-.03em;margin:12px 0 8px;}
-  .title .sub{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
-  .grp{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--grid);}
-  @media(max-width:640px){.grp{grid-template-columns:1fr;gap:8px;}}
-  .grp .h{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--red-d);}
-  .row{margin-bottom:16px;}
-  .row:last-child{margin-bottom:0;}
-  .row .t{font-weight:800;font-size:16px;}
-  .row .d{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
-  .row ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14px;}
-  .row ul li{margin:3px 0;}
-  .row ul li::marker{color:var(--red);}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;}
-  .chips span{font-family:var(--mono);font-size:12px;border:1px solid var(--ink);padding:3px 9px;}
-  .contact a{font-family:var(--mono);font-size:13px;border-bottom:2px solid var(--red);padding-bottom:2px;margin-right:20px;display:inline-block;margin-bottom:6px;}
-  footer{padding:24px 0;font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .mast .tools{display:flex;gap:10px;}
+  .mast .btn{font-family:var(--mono);font-weight:700;font-size:12px;border:2px solid var(--ink);padding:8px 14px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:none;color:var(--ink);}
+  .mast .btn:hover{background:var(--ink);color:#fff;}
+  .mast .btn.pdf{border-color:var(--red-d);color:var(--red-d);}
+  .mast .btn.pdf:hover{background:var(--red-d);color:#fff;}
+
+  /* title block */
+  .title{max-width:1040px;margin:0 auto;padding:52px 32px 30px;border-bottom:3px solid var(--line);}
+  .title .k{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-d);}
+  .title h1{font-weight:900;font-size:clamp(46px,9vw,88px);line-height:.9;letter-spacing:-.03em;margin:14px 0 6px;}
+  .title h1 .r{color:var(--red);}
+  .title .sub{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.05em;}
+  .title .lede{margin:20px 0 0;max-width:60ch;font-size:16px;color:var(--muted);line-height:1.75;}
+  .title .lede b{color:var(--ink);font-weight:700;}
+
+  /* layout: sticky index + body */
+  .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:158px 1fr;gap:52px;align-items:start;}
+  .idx{position:sticky;top:96px;padding-top:40px;}
+  .idx .lbl{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sec);margin-bottom:14px;}
+  .idx a{display:flex;gap:9px;align-items:baseline;font-family:var(--mono);font-size:12.5px;color:var(--sec);padding:5px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--hair);}
+  .idx a .n{color:var(--red-d);font-weight:700;}
+  .idx a:hover{color:var(--red-d);}
+  .idx .ct{margin-top:26px;font-family:var(--mono);font-size:12px;line-height:2;color:var(--sec);}
+  .idx .ct a{display:block;border:none;padding:0;color:var(--red-d);}
+  .idx .ct a:hover{color:var(--ink);}
+
+  .body{min-width:0;padding-top:40px;}
+
+  /* section header: number + name + english label */
+  .sec{scroll-margin-top:92px;padding-top:14px;}
+  .sec + .sec{margin-top:40px;}
+  .sec-h{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:22px;}
+  .sec-h .n{font-weight:900;font-size:34px;line-height:.8;letter-spacing:-.02em;color:var(--ink);}
+  .sec-h h2{font-weight:800;font-size:22px;letter-spacing:-.01em;margin:0;}
+  .sec-h .lab{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-d);}
+
+  /* entry */
+  .ent{padding:16px 0 20px;border-bottom:1px solid var(--hair);}
+  .ent:last-child{border-bottom:none;}
+  .ent-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;}
+  .ent .role{font-weight:800;font-size:16.5px;letter-spacing:-.01em;}
+  .ent .org{color:var(--red-d);font-weight:700;}
+  .ent .date{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--sec);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+  .ent .place{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--sec);text-transform:uppercase;letter-spacing:.04em;margin-top:3px;}
+  .ent ul{margin:11px 0 0;padding-left:17px;color:var(--muted);font-size:14px;line-height:1.68;}
+  .ent ul li{margin:4px 0;}
+  .ent ul li::marker{color:var(--red);}
+  .ent ul li b{color:var(--ink);font-weight:700;}
+  .ent .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .ent .tags span{font-family:var(--mono);font-weight:700;font-size:11px;border:1.5px solid var(--grid);color:var(--sec);padding:3px 9px;text-transform:uppercase;letter-spacing:.03em;}
+  .ent .tags span.hot{border-color:var(--red-d);color:var(--red-d);}
+
+  /* focus / stack rows */
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--hair);align-items:start;}
+  .kv:last-child{border-bottom:none;}
+  .kv .kk{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--red-d);text-transform:uppercase;letter-spacing:.05em;padding-top:3px;}
+  .kv .vv{color:var(--ink);font-size:14.5px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;}
+  .chips span{font-family:var(--mono);font-weight:700;font-size:12px;border:1.5px solid var(--ink);padding:4px 10px;}
+
+  footer{border-top:3px solid var(--line);}
+  footer .in{max-width:1040px;margin:0 auto;padding:24px 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.03em;}
+  footer .in a{color:var(--red-d);}
+  footer .in a:hover{color:var(--ink);}
+
+  @media(max-width:820px){
+    .cv{grid-template-columns:1fr;gap:0;}
+    .idx{display:none;}
+    .body{padding-top:26px;}
+  }
+  @media(max-width:520px){
+    .mast .in,.title,.cv,footer .in{padding-left:20px;padding-right:20px;}
+  }
+
+  @media print{
+    .mast,.idx,footer{display:none;}
+    html{scroll-behavior:auto;}
+    body{font-size:11pt;}
+    .cv{grid-template-columns:1fr;gap:0;padding:0;}
+    .title{padding:0 0 16px;}
+    .sec{page-break-inside:avoid;}
+    .ent{page-break-inside:avoid;}
+    a{color:#000;}
+    .org,.sec-h .lab,.kv .kk{color:#000;}
+  }
 </style>
 </head>
 <body>
 
 <header class="mast"><div class="in">
-  <span class="id"><span class="sq"></span>CV — 김상현</span>
-  <a class="back" href="/">← Blog</a>
+  <a class="id" href="/"><span class="sq"></span>CV — 김상현</a>
+  <div class="tools">
+    <button class="btn pdf" onclick="window.print()">Print / PDF</button>
+    <a class="btn" href="/">← Blog</a>
+  </div>
 </div></header>
 
-<main class="wrap">
-  <div class="title">
-    <div class="k">Curriculum Vitae</div>
-    <h1>김상현</h1>
-    <div class="sub">Kim SangHyeon · Blockchain Validator / Infra · System·Contract Security</div>
-  </div>
+<section class="title">
+  <div class="k">Curriculum Vitae</div>
+  <h1>김상현<span class="r">.</span></h1>
+  <div class="sub">Kim SangHyeon · Blockchain Validator / Infra · Contract &amp; System Security</div>
+  <p class="lede">블록체인 밸리데이터·인프라를 <b>단독으로 운영</b>하고, 스마트컨트랙트와 시스템 보안을 리서치합니다. 직접 당하고 부딪히며 알게 된 것을 <b>코드와 글로 남깁니다.</b></p>
+</section>
 
-  <div class="grp">
-    <div class="h">경력<br>Experience</div>
-    <div>
-      <div class="row">
-        <div class="t">블록체인 밸리데이터 · 인프라 엔지니어</div>
-        <div class="d">Anam145 · 인프라팀 · 2026.05 — 현재</div>
-        <ul>
-          <li>멀티체인(Kaia 거버넌스 카운슬 · Avalanche · Celestia) 노드 구축·운영·모니터링 단독 담당</li>
-          <li>OVH 베어메탈 도입, RHEL·RAID 5, SSH·방화벽·FIDO 하드웨어 키 하드닝</li>
-          <li>Prometheus·Grafana 대시보드 + Slack·Discord·Telegram 다중 채널 알림 자동화, runbook 문서화</li>
-          <li>AWS 점프서버(EIP·AZ 이중화)로 직접 노출 차단·단일 진입점 접근 통제</li>
-          <li>하드포크 대응 프로세스 정립 — 재동기화 5일 → 4시간 단축</li>
-          <li>밸리데이터 NodeID 재사용 취약점 발견·재현 후 키 로테이션 대응 수립</li>
-        </ul>
-      </div>
-      <div class="row">
-        <div class="t">육군 정보보호병 · 보안 관제</div>
-        <div class="d">국방통합데이터센터</div>
-        <ul><li>IPS·WAF·IDS 패킷 분석, 악성 메일·IP 차단, 보안 로그 기반 실시간 위협 대응</li></ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="grp">
-    <div class="h">보안·프로젝트<br>Security</div>
-    <div>
-      <div class="row"><div class="t">Funarchy — 예측시장 보안 가이드 (팀장)</div><div class="d">Upside Academy · 버그바운티 $1,000 · .HACK 발표</div>
-        <ul><li>Polymarket·Opinion 위협 모델링, Opinion에서 Integer Overflow로 거래를 차단하는 취약점 발견 → PoC 제작·제보</li></ul></div>
-      <div class="row"><div class="t">소프트웨어보안 — 바이너리 익스플로잇</div>
-        <ul><li>버퍼 오버플로우·셸코드 RCE·레이스 컨디션·정수 언더플로우·OOB Write·포맷 스트링 (pwntools/gdb/IDA·Ghidra)</li></ul></div>
-      <div class="row"><div class="t">LLM Auditor(Web2·Web3) · 우리콘 AI 에이전트</div><div class="d">진행 중 · codex exec 기반 취약점 헌팅 자동화</div></div>
-    </div>
-  </div>
-
-  <div class="grp">
-    <div class="h">기술<br>Stack</div>
-    <div class="chips"><span>Linux/RHEL</span><span>AWS(EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA/Ghidra</span><span>Python</span><span>C</span><span>Git</span></div>
-  </div>
-
-  <div class="grp">
-    <div class="h">교육<br>Education</div>
-    <div>
-      <div class="row"><div class="t">고려대학교 스마트보안학부</div><div class="d">인공지능보안 · 빅데이터보안</div></div>
-      <div class="row"><div class="t">Cykor 해킹 동아리 · 42 Seoul · Upside Academy</div><div class="d">pwn(Heap·RTL·ROP)·CTF · 개발자 양성 · Web3 보안</div></div>
-    </div>
-  </div>
-
-  <div class="grp">
-    <div class="h">연락<br>Contact</div>
-    <div class="contact">
-      <a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a>
+<div class="cv">
+  <!-- sticky index -->
+  <nav class="idx">
+    <div class="lbl">Index</div>
+    <a href="#exp"><span class="n">01</span><span>경력</span></a>
+    <a href="#sec"><span class="n">02</span><span>보안·리서치</span></a>
+    <a href="#proj"><span class="n">03</span><span>프로젝트</span></a>
+    <a href="#act"><span class="n">04</span><span>활동·교육</span></a>
+    <a href="#edu"><span class="n">05</span><span>학력</span></a>
+    <a href="#stack"><span class="n">06</span><span>기술</span></a>
+    <a href="#write"><span class="n">07</span><span>글</span></a>
+    <div class="ct">
+      Contact<br>
+      <a href="mailto:sh.kim@anam145.com">sh.kim@anam145.com</a>
       <a href="https://github.com/u5er99">github.com/u5er99</a>
       <a href="https://x.com/u5er_99">@u5er_99</a>
     </div>
-  </div>
+  </nav>
 
-  <footer><span>© 2026 Kim SangHyeon</span><span><a href="/">← Blog</a></span></footer>
-</main>
+  <!-- body -->
+  <main class="body">
+
+    <section class="sec" id="exp">
+      <div class="sec-h"><span class="n">01</span><h2>경력</h2><span class="lab">Experience</span></div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">블록체인 밸리데이터 · 인프라 엔지니어</span> <span class="org">— Anam145</span></div>
+          <span class="date">2026.05 — 현재</span>
+        </div>
+        <div class="place">인프라팀 · 단독 운영</div>
+        <ul>
+          <li>약 2개월 인수인계 후 <b>단독으로</b> 멀티체인 밸리데이터(Kaia 거버넌스 카운슬 · Avalanche · Celestia)와 사내 서버 인프라를 운영</li>
+          <li>Kaia 요구사양이 사내 서버를 초과 → <b>OVH 베어메탈 2대 신규 임대</b>, RHEL·<b>RAID 5</b> 구성, consensus/proxy 노드를 from scratch로 세팅</li>
+          <li>SSH·방화벽·<b>FIDO 하드웨어 보안키</b>로 서버 하드닝, node_exporter 배포</li>
+          <li>Prometheus·Grafana 대시보드 + <b>Slack·Discord·Telegram 다중 채널 알림</b> 자동화, 전 과정을 Notion runbook으로 문서화</li>
+          <li>AWS 점프서버(VPC public 서브넷 · EIP · <b>AZ 이중화</b> · SSH ProxyJump)를 구축해 직접 노출 차단·단일 진입점 접근 통제 (기존 Tailscale 제거)</li>
+          <li>멀티체인 업그레이드 추적 체계 정립 — 하드포크 대응 지연(재동기화 5일)을 반성해 Discord·GitHub Releases 상시 감시로 전환, <b>Celestia Mocha-5 전환을 조기 포착해 4시간 내 정상 복귀</b></li>
+        </ul>
+        <div class="tags"><span class="hot">Kaia GC</span><span>Multi-chain</span><span>RHEL · RAID5</span><span>AWS · VPC</span><span>Prometheus</span></div>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">정보보호병 · 보안 관제 (SOC)</span> <span class="org">— 국방통합데이터센터</span></div>
+          <span class="date">육군</span>
+        </div>
+        <ul>
+          <li>IPS·WAF·IDS 패킷 분석, 악성 메일·악성 IP 차단, 보안 로그 기반 <b>실시간 위협 탐지·대응</b></li>
+        </ul>
+        <div class="tags"><span>IPS · WAF · IDS</span><span>SOC</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="sec">
+      <div class="sec-h"><span class="n">02</span><h2>보안 · 리서치</h2><span class="lab">Security</span></div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">Funarchy — 예측시장 보안 가이드 · 팀장</span> <span class="org">— Upside Academy</span></div>
+          <span class="date">Team Lead</span>
+        </div>
+        <ul>
+          <li>Web3 예측시장의 전 생애주기 <b>위협 모델링</b> — 5개 영역 × 21종 취약점 패턴 정리, 실제 프로토콜 9종(Polymarket·Opinion 등) 점검</li>
+          <li>Polymarket·Opinion 분석 담당. <b>Opinion에서 Integer Overflow로 특정 사용자의 거래를 차단하는 취약점 발견</b> → PoC 제작·제보 → 버그바운티 <b>$1,000</b> 수령</li>
+          <li>.HACK 컨퍼런스 발표 — latency 악용, 단일 데이터소스 의존, 오라클 51% 공격, Opinion Overflow 거래 차단</li>
+        </ul>
+        <div class="tags"><span class="hot">팀장</span><span class="hot">$1,000 Bounty</span><span>PoC</span><span>.HACK 발표</span><span>Solidity</span></div>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">우리콘 — 인터넷뱅킹 모의해킹</span> <span class="org">— 진행 중</span></div>
+          <span class="date">WIP</span>
+        </div>
+        <ul>
+          <li>Web2 취약점 헌팅에 <b>AI 에이전트 자동화</b> 도입 — Agent.md · SKILL.md를 작성해 codex exec으로 실행하는 헌팅 파이프라인 구성</li>
+        </ul>
+        <div class="tags"><span class="hot">AI Agent</span><span>Web2</span><span>모의해킹</span></div>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">소프트웨어보안 — 다중 취약점 연계 익스플로잇</span> <span class="org">— 전공 프로젝트</span></div>
+        </div>
+        <ul>
+          <li>Race Condition + unsigned 정수 underflow + 구조체 OOB Write + 검증 로직 허점을 <b>연계</b>해 flag 획득, pwntools 익스플로잇 작성</li>
+          <li>버퍼 오버플로우 · 셸코드 RCE · 포맷 스트링 · ROP (pwntools / gdb / IDA · Ghidra)</li>
+        </ul>
+        <div class="tags"><span>pwn</span><span>Race Condition</span><span>OOB Write</span><span>ROP</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="proj">
+      <div class="sec-h"><span class="n">03</span><h2>프로젝트</h2><span class="lab">Projects</span></div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">LLM Auditor (Web2 · Web3)</span> <span class="org">— 보안 감사 도구</span></div>
+          <span class="date">WIP</span>
+        </div>
+        <ul>
+          <li>스마트컨트랙트·웹 취약점 감사에 LLM을 활용하는 감사 보조 도구. Funarchy 보안 경험과 LLM을 잇는 브릿지 프로젝트</li>
+        </ul>
+        <div class="tags"><span>LLM</span><span>Smart Contract</span><span>Web Audit</span></div>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">NewsForge — 이더리움 뉴스 자동 정리</span></div>
+        </div>
+        <ul>
+          <li>이더리움/블록체인 뉴스를 자동으로 수집·요약하는 앱. 프롬프트 설계와 앱 구현을 분담해 협업</li>
+        </ul>
+        <div class="tags"><span>LLM</span><span>Automation</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="act">
+      <div class="sec-h"><span class="n">04</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
+
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">Cykor 해킹 동아리</span> <span class="org">— 고려대학교</span></div><span class="date">정회원 · ~1년</span></div>
+        <ul>
+          <li>시스템·웹·암호학, <b>Heap · RTL · ROP</b> 등 pwnable 공격기법 연구, CTF 참가, IDA·Ghidra 리버싱</li>
+          <li><b>후배 기수 대상 RTL · ROP · Heap 강의</b> 진행 (지식 공유)</li>
+        </ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">Upside Academy</span> <span class="org">— Web3 보안</span></div></div>
+        <ul><li>Web3 보안 부트캠프 · 결과물 Funarchy 예측시장 보안 가이드 (회고: 블로그 “End of Upside”)</li></ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">42 Seoul</span> <span class="org">— 개발자 양성</span></div></div>
+        <ul><li>프로젝트 중심 학습(C 등), 오픈소스 기여, Slack 커뮤니티 기반 자기주도 협업</li></ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">블록체인 학회 리서치팀</span></div></div>
+        <ul><li>RWA(실물자산 토큰화) Oracle 관련 리서치 보고서 작성</li></ul>
+      </div>
+    </section>
+
+    <section class="sec" id="edu">
+      <div class="sec-h"><span class="n">05</span><h2>학력</h2><span class="lab">Education</span></div>
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">고려대학교 스마트보안학부</span></div><span class="date">인공지능보안 · 빅데이터보안</span></div>
+        <ul>
+          <li>인공지능보안: 딥러닝 기반 악성코드 탐지 모델 실습</li>
+          <li>빅데이터보안: EDA(탐색적 데이터 분석)로 보안 이벤트 탐지 연구</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="stack">
+      <div class="sec-h"><span class="n">06</span><h2>기술</h2><span class="lab">Stack</span></div>
+      <div class="kv"><div class="kk">Infra</div><div class="vv chips"><span>Linux / RHEL</span><span>AWS (EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>RAID</span></div></div>
+      <div class="kv"><div class="kk">Security</div><div class="vv chips"><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA / Ghidra</span><span>Threat Modeling</span></div></div>
+      <div class="kv"><div class="kk">Lang</div><div class="vv chips"><span>Python</span><span>C</span><span>Solidity</span><span>Git</span></div></div>
+      <div class="kv"><div class="kk">Focus</div><div class="vv">블록체인 인프라 · 스마트컨트랙트 보안 · 시스템·바이너리 익스플로잇 · AI × 보안</div></div>
+    </section>
+
+    <section class="sec" id="write">
+      <div class="sec-h"><span class="n">07</span><h2>글</h2><span class="lab">Writing</span></div>
+      <div class="ent">
+        <div class="ent-top"><div><span class="role">기술 블로그</span> <span class="org">— u5er99.github.io</span></div><span class="date"><a href="/" style="color:var(--red-d)">전체 보기 →</a></span></div>
+        <ul>
+          <li>DeepDive Uniswap V4 — 아키텍처 변화와 보안 고려사항</li>
+          <li>Onchain Rug Pull 수법 분석 — 허니팟 컨트랙트와 회수 봇 온체인 추적</li>
+          <li>Uniswap V1–V4 진화 · CPMM · Concentrated Liquidity 시리즈</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer><div class="in">
+  <span>© 2026 Kim SangHyeon</span>
+  <span><a href="mailto:sh.kim@anam145.com">Email</a> · <a href="https://github.com/u5er99">GitHub</a> · <a href="https://x.com/u5er_99">X</a> · <a href="/">← Blog</a></span>
+</div></footer>
+
 </body>
 </html>
