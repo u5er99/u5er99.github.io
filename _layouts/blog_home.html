@@ -20,7 +20,7 @@
   img{max-width:100%;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
   .mast{border-bottom:3px solid var(--line);}
-  .mast .in{max-width:1080px;margin:0 auto;padding:20px 28px;display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;}
+  .mast .in{max-width:1080px;margin:0 auto;padding:20px 28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
   .mast .id{font-family:var(--head);font-weight:900;font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
   .mast .id .sq{width:14px;height:14px;background:var(--red);}
   .mast .m{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:right;line-height:1.5;}
@@ -60,25 +60,25 @@
   .photo img{width:100%;height:100%;object-fit:cover;}
   .about .intro{font-family:var(--head);font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 0;}
   .about .intro .r{color:var(--red);}
-  .about .lede{color:var(--muted);font-size:15.5px;margin:18px 0 0;max-width:52ch;line-height:1.8;}
+  .about .lede{color:var(--muted);font-size:16px;margin:16px 0 0;max-width:46ch;line-height:1.8;}
   .about .lede b{color:var(--ink);font-weight:600;}
+  .about .tagline{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin:22px 0 0;}
+  .about .tagline .e{color:var(--red-d);}
 </style>
 </head>
 <body>
 
 <header class="mast"><div class="in">
-  <span class="id"><span class="sq"></span>u5er99 — 김상현</span>
-  <span class="m">Seoul · KR<br>Blockchain / Security<br>Index 2025—26</span>
+  <a class="id" href="{{ '/' | relative_url }}"><span class="sq"></span>u5er99</a>
   <nav class="navbtns"><a class="cvbtn" href="{{ '/archives/' | relative_url }}">Archives</a><a class="cvbtn" href="{{ '/cv/' | relative_url }}">CV</a></nav>
 </div></header>
 
 <section class="hero"><div class="in hero-grid">
   <div class="photo"><span>PHOTO<br><small>사진 자리</small></span></div>
   <div class="about">
-    <p class="eyebrow">About / 김상현</p>
     <h1 class="intro">김상현<span class="r">.</span></h1>
-    <p class="lede">보안이 제일 복잡하고 어려워 보여서 <b>순전히 재미로</b> 시작했습니다. 시스템·바이너리 취약점(pwn)을 파다가 경제와 web3에 끌렸고, 지금은 <b>스마트컨트랙트 보안과 블록체인 인프라</b>를 다룹니다. 러그풀을 직접 당하고 화가 나서 컨트랙트를 뜯어보고, 밸리데이터 노드를 직접 굴리면서 <b>‘왜 이렇게 만들었나’</b>를 파고듭니다. 그렇게 파고든 것들을 여기 남깁니다.</p>
-    <div class="foot"><span>Kim SangHyeon</span><span>Validator · Infra · Security</span><span><b>{{ site.posts | size }}</b> entries</span></div>
+    <p class="lede">보안이 어려워 보여서 <b>재미로</b> 시작했고, 지금은 <b>web3 보안과 블록체인 인프라</b>를 판다. 직접 당해보고 코드를 뜯어보며 배운 걸 여기 남긴다.</p>
+    <p class="tagline">Validator · Infra · <span class="e">Smart-contract Security</span></p>
   </div>
 </div></section>
 
@@ -101,7 +101,6 @@
 <footer><div class="in">
   <span>© {{ site.time | date: "%Y" }} Kim SangHyeon</span>
   <span><a href="https://github.com/u5er99">GitHub</a> · <a href="https://x.com/u5er_99">X</a> · <a href="mailto:tkdgusrns456@korea.ac.kr">Email</a></span>
-  <span>Seoul · Grid 1080</span>
 </div></footer>
 
 </body>
