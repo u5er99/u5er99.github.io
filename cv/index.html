@@ -192,19 +192,6 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role">Funarchy — 예측시장 보안 가이드 · 팀장</span> <span class="org">— Upside Academy</span></div>
-          <span class="date">2025.08 — 2025.12</span>
-        </div>
-        <div class="place">Team Lead · <a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
-        <ul>
-          <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
-          <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
-          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령 (.HACK 컨퍼런스 발표, 아래 03 참조)</li>
-        </ul>
-      </div>
-
-      <div class="ent">
-        <div class="ent-top">
           <div><span class="role">우리콘 — 인터넷뱅킹 모의해킹 경진대회</span> <span class="org">— 진행 중</span></div>
           <span class="date">2026 · 6회</span>
         </div>
@@ -223,6 +210,19 @@
           <li><b>Stage4</b>: Race Condition(잔액 검사 우회) + unsigned 정수 underflow(잔액 거대화) + 구조체 OOB Write(인접 검증 변수 덮기) + 검증 로직 허점을 <b>연계</b>해 flag 획득</li>
           <li><b>Stage3</b>: 무한 입력으로 전역 변수(access_level · secret_token)를 덮어 권한 우회 + 포맷 스트링. pwntools로 익스플로잇 작성</li>
           <li>기반 기법: 버퍼 오버플로우 · 셸코드 RCE · 포맷 스트링 · ROP (pwntools / gdb / IDA · Ghidra)</li>
+        </ul>
+      </div>
+
+      <div class="ent">
+        <div class="ent-top">
+          <div><span class="role">Funarchy — 예측시장 보안 가이드 · 팀장</span> <span class="org">— Upside Academy</span></div>
+          <span class="date">2025.08 — 2025.12</span>
+        </div>
+        <div class="place">Team Lead · <a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
+        <ul>
+          <li><b>팀장으로 프로젝트 리드.</b> Web3 예측시장 프로토콜의 전 생애주기(시장 생성 · 거래 · 정산 · 유동성 · 거버넌스 · 운영)를 대상으로 위협 모델링 방법론을 수립 — 컨트랙트 상호작용 지점과 외부 API 경계를 데이터 플로우로 구조화해 공격 진입점을 도출</li>
+          <li><b>5개 보안 영역(Configuration · Trading · Oracle · Governance · Operation) × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket · Myriad · Seer · Opinion 등)을 영역별 안전/주의/위험 대시보드로 진단</li>
+          <li>Polymarket·Opinion 직접 분석. <b>Opinion 정산 계산의 Integer Overflow로 특정 사용자의 거래를 차단(block)하는 취약점 발견</b> → PoC 제작 → 제보 → 버그바운티 <b>$1,000</b> 수령 (.HACK 컨퍼런스 발표, 아래 03 참조)</li>
         </ul>
       </div>
     </section>
@@ -271,11 +271,8 @@
       <div class="sec-h"><span class="n">05</span><h2>활동 · 교육</h2><span class="lab">Activities</span></div>
 
       <div class="ent">
-        <div class="ent-top"><div><span class="role">Cykor 해킹 동아리 · 정회원</span> <span class="org">— 고려대학교</span></div><span class="date">2021.03 — 2022.07</span></div>
-        <ul>
-          <li>시스템·웹·암호학 연구, <b>Heap · RTL · ROP</b> 등 pwnable 공격기법, CTF 참가 시 정적·동적 분석과 IDA·Ghidra 리버싱으로 취약점 발견</li>
-          <li><b>후배 기수 대상 RTL · ROP · Heap 강의</b> 진행 (지식 공유)</li>
-        </ul>
+        <div class="ent-top"><div><span class="role">블록체인 밸리 · 리서치팀</span> <span class="org">— 블록체인 학회</span></div><span class="date">2026.03 — 현재</span></div>
+        <ul><li>리서치팀원으로 <b>RWA(실물자산 토큰화) Oracle</b> 관련 리서치 보고서 작성</li></ul>
       </div>
 
       <div class="ent">
@@ -284,13 +281,16 @@
       </div>
 
       <div class="ent">
-        <div class="ent-top"><div><span class="role">42 Seoul</span> <span class="org">— <a href="https://42seoul.kr">개발자 양성</a></span></div><span class="date">2021.07 — 2022.06</span></div>
-        <ul><li>프로젝트 중심 학습(C 등 다양한 언어·기술), 오픈소스 기여, Slack 커뮤니티 기반 자기주도 협업·네트워킹</li></ul>
+        <div class="ent-top"><div><span class="role">Cykor 해킹 동아리 · 정회원</span> <span class="org">— 고려대학교</span></div><span class="date">2021.03 — 2022.07</span></div>
+        <ul>
+          <li>시스템·웹·암호학 연구, <b>Heap · RTL · ROP</b> 등 pwnable 공격기법, CTF 참가 시 정적·동적 분석과 IDA·Ghidra 리버싱으로 취약점 발견</li>
+          <li><b>후배 기수 대상 RTL · ROP · Heap 강의</b> 진행 (지식 공유)</li>
+        </ul>
       </div>
 
       <div class="ent">
-        <div class="ent-top"><div><span class="role">블록체인 밸리 · 리서치팀</span> <span class="org">— 블록체인 학회</span></div><span class="date">2026.03 — 현재</span></div>
-        <ul><li>리서치팀원으로 <b>RWA(실물자산 토큰화) Oracle</b> 관련 리서치 보고서 작성</li></ul>
+        <div class="ent-top"><div><span class="role">42 Seoul</span> <span class="org">— <a href="https://42seoul.kr">개발자 양성</a></span></div><span class="date">2021.07 — 2022.06</span></div>
+        <ul><li>프로젝트 중심 학습(C 등 다양한 언어·기술), 오픈소스 기여, Slack 커뮤니티 기반 자기주도 협업·네트워킹</li></ul>
       </div>
     </section>
 
