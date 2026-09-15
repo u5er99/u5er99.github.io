@@ -27,7 +27,7 @@
   .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
   .mast .id .sq{width:13px;height:13px;background:var(--red);}
   .mast .btn{font-family:var(--mono);font-weight:700;font-size:12px;border:2px solid var(--ink);padding:8px 13px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:none;color:var(--ink);}
-  .mast .btn:hover{background:var(--ink);color:#fff;}
+  .mast .btn:hover{background:var(--red-d);border-color:var(--red-d);color:#fff;}
 
   /* title block */
   .title{max-width:1040px;margin:0 auto;padding:50px 32px 22px;border-bottom:3px solid var(--line);}
@@ -39,17 +39,22 @@
   .title-foot .lede b{color:var(--ink);font-weight:700;}
   .title-foot .acts{display:flex;gap:9px;flex:none;}
   .title .btn{font-family:var(--mono);font-weight:700;font-size:12px;border:2px solid var(--ink);padding:8px 13px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:none;color:var(--ink);white-space:nowrap;}
-  .title .btn:hover{background:var(--ink);color:#fff;}
+  .title .btn:hover{background:var(--red-d);border-color:var(--red-d);color:#fff;}
   .title .btn.lang{border-color:var(--red-d);color:var(--red-d);}
   .title .btn.lang:hover{background:var(--red-d);color:#fff;}
-  @media(max-width:520px){.title .btn.pdf{display:none;}}
+  .dl{position:relative;}
+  .dl-menu{position:absolute;right:0;top:calc(100% + 5px);background:var(--bg);border:2px solid var(--ink);display:flex;flex-direction:column;z-index:30;min-width:130px;}
+  .dl-menu[hidden]{display:none;}
+  .dl-menu button{font-family:var(--mono);font-weight:700;font-size:12px;padding:10px 13px;text-align:left;background:none;border:none;cursor:pointer;text-transform:uppercase;color:var(--ink);}
+  .dl-menu button + button{border-top:1px solid var(--grid);}
+  .dl-menu button:hover{background:var(--red-d);color:#fff;}
 
   /* layout: sticky index + body */
   .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:170px 1fr;gap:52px;align-items:start;}
   .idx{position:sticky;top:96px;padding-top:40px;}
   .idx .lbl{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
   .idx .nav a{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--sec);padding:6px 0;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--hair);transition:color .15s;}
-  .idx .nav a .n{color:var(--red-d);}
+  .idx .nav a .n{display:none;}
   .idx .nav a:hover{color:var(--red-d);}
   .idx .nav a.active{color:var(--red-d);}
   .idx .nav a.active::after{content:"";margin-left:auto;width:7px;height:7px;background:var(--red);border-radius:50%;}
@@ -67,7 +72,7 @@
   .sec{scroll-margin-top:92px;padding-top:14px;}
   .sec + .sec{margin-top:40px;}
   .sec-h{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:22px;}
-  .sec-h .n{font-weight:900;font-size:34px;line-height:.8;letter-spacing:-.02em;color:var(--ink);}
+  .sec-h .n{display:none;}
   .sec-h h2{font-weight:800;font-size:22px;letter-spacing:-.01em;margin:0;}
 
   /* entry */
@@ -121,30 +126,32 @@
 
   .print-head{display:none;}
   @media print{
-    @page{margin:14mm 15mm;}
-    .mast,.idx,footer,.title{display:none;}
-    .sec-h .n{display:none;}
+    @page{margin:13mm 15mm;}
+    .mast,.idx,footer,.title,.lb,#skill{display:none;}
     html{scroll-behavior:auto;}
-    body{font-size:10pt;line-height:1.4;}
+    body{font-size:10pt;line-height:1.42;}
     /* centered resume header */
-    .print-head{display:block;text-align:center;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid #000;}
-    .print-head .ph-name{font-family:var(--head);font-weight:900;font-size:20pt;letter-spacing:-.01em;}
-    .print-head .ph-sub{font-family:var(--mono);font-size:8.5pt;text-transform:uppercase;letter-spacing:.05em;color:#222;margin-top:5px;}
+    .print-head{display:block;text-align:center;margin:0 0 13px;padding-bottom:10px;border-bottom:2.5px solid var(--red-d);}
+    .print-head .ph-name{font-family:var(--head);font-weight:900;font-size:21pt;letter-spacing:-.01em;}
+    .print-head .ph-sub{font-family:var(--mono);font-size:8.5pt;text-transform:uppercase;letter-spacing:.06em;color:var(--red-d);margin-top:6px;}
     .print-head .ph-contact{font-family:var(--mono);font-size:8pt;color:#333;margin-top:5px;}
-    /* body single column, compact */
+    /* body single column, Education first, compact */
     .cv{grid-template-columns:1fr;gap:0;padding:0;}
-    .body{padding-top:0;}
-    .sec{padding-top:0;margin:0;} .sec + .sec{margin-top:12px;}
-    .sec-h{margin-bottom:8px;padding-bottom:4px;gap:10px;}
-    .sec-h .n{font-size:15pt;} .sec-h h2{font-size:13pt;}
-    .ent{padding:6px 0 7px;} .ent .role{font-size:10.5pt;}
-    .ent ul{margin-top:4px;} .ent ul li{margin:2px 0;}
-    .kv{padding:4px 0;}
+    .body{display:flex;flex-direction:column;padding-top:0;}
+    #edu{order:-1;}
+    .sec{padding-top:0;margin:0;} .sec + .sec{margin-top:14px;}
+    .sec-h{margin-bottom:8px;padding-bottom:3px;border-bottom:1.5px solid var(--red-d);}
+    .sec-h .n{display:none;}
+    .sec-h h2{font-size:12pt;color:var(--red-d);text-transform:uppercase;letter-spacing:.05em;}
+    .ent{padding:5px 0 6px;} .ent .role{font-size:10.5pt;}
+    .ent .org{color:var(--red-d);} .ent .date{color:#333;}
+    .ent .place{color:#555;}
+    .ent ul{margin-top:3px;} .ent ul li{margin:2px 0;}
+    .kv{padding:3px 0;}
     .sec,.ent{page-break-inside:avoid;}
-    a{color:#000;text-decoration:none;} .org,.kv .kk,.sec-h .n,.ent .date{color:#000;}
-    .ent .org a,.ent a.src{border-bottom:none;}
-    .ent .org a::after,.ent a.src::after,.idx .ct a::after{content:"";}
-    .lb{display:none;}
+    a{color:inherit;text-decoration:none;}
+    .ent .org a,.ent a.src{border-bottom:none;color:var(--red-d);}
+    .ent .org a::after,.ent a.src::after,.ent a.src.lbtrig::after{content:"";}
   }
 </style>
 </head>
@@ -168,7 +175,13 @@
     <p class="lede"><span class="en">Interested in <b>RWA tokenization</b>, blockchain infrastructure, and smart-contract security.</span><span class="ko"><b>RWA(실물자산 토큰화)</b>와 블록체인 인프라, 스마트컨트랙트 보안에 관심을 둡니다.</span></p>
     <div class="acts">
       <button class="btn lang" id="langBtn" onclick="toggleLang()">한국어</button>
-      <button class="btn pdf" onclick="window.print()">Print / PDF</button>
+      <div class="dl">
+        <button class="btn pdf" onclick="toggleDl(event)">Download ↓</button>
+        <div class="dl-menu" id="dlMenu" hidden>
+          <button onclick="dlCV('en')">English PDF</button>
+          <button onclick="dlCV('ko')">한글 PDF</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -280,7 +293,7 @@
 
       <div class="ent">
         <div class="ent-top">
-          <div><span class="role"><span class="en">Prediction-Market Security Guide · Lead</span><span class="ko">예측시장 보안 가이드 · 팀장</span></span></div>
+          <div><span class="role"><span class="en">Prediction-Market Security Guide · Lead</span><span class="ko">예측시장 보안 가이드 · 팀장</span></span> <span class="org">- Upside Academy</span></div>
           <span class="date">2025.08 - 2026.04</span>
         </div>
         <div class="place"><a class="src" href="https://funarchy.gitbook.io/funarchy"><span class="en">Read the security guide</span><span class="ko">보안 가이드 문서 보기</span></a></div>
@@ -324,8 +337,8 @@
     <section class="sec" id="edu">
       <div class="sec-h"><span class="n">06</span><h2><span class="en">Education</span><span class="ko">학력</span></h2></div>
       <div class="ent">
-        <div class="ent-top"><div><span class="role"><span class="en">Korea University - School of Cybersecurity</span><span class="ko">고려대학교 스마트보안학부</span></span></div><span class="date">2021.03 - 2027.02 <span class="en">(expected)</span><span class="ko">졸업 예정</span></span></div>
-        <div class="place"><span class="en">AI Security · Big-data Security · Enrolled</span><span class="ko">인공지능보안 · 빅데이터보안 · 재학 중</span></div>
+        <div class="ent-top"><div><span class="role"><span class="en">Korea University - School of Cybersecurity</span><span class="ko">고려대학교 스마트보안학부</span></span> <span class="org">- <a href="https://www.korea.ac.kr">korea.ac.kr</a></span></div><span class="date">2021.03 - 2027.02 <span class="en">(expected)</span><span class="ko">졸업 예정</span></span></div>
+        <div class="place"><span class="en">Enrolled</span><span class="ko">재학 중</span></div>
       </div>
     </section>
 
@@ -352,6 +365,16 @@
   }
   (function(){var cur=document.documentElement.getAttribute('data-lang');
     document.getElementById('langBtn').textContent = cur==='ko' ? 'EN' : '한국어';})();
+
+  function toggleDl(e){ if(e) e.stopPropagation(); var m=document.getElementById('dlMenu'); m.hidden=!m.hidden; }
+  function dlCV(lang){
+    var h=document.documentElement; h.setAttribute('data-lang', lang);
+    try{localStorage.setItem('cvlang', lang);}catch(e){}
+    document.getElementById('langBtn').textContent = lang==='ko' ? 'EN' : '한국어';
+    document.getElementById('dlMenu').hidden = true;
+    setTimeout(function(){ window.print(); }, 150);
+  }
+  document.addEventListener('click', function(){ var m=document.getElementById('dlMenu'); if(m) m.hidden=true; });
 
   function openLb(e){ if(e) e.preventDefault(); document.getElementById('lb').hidden=false; document.body.style.overflow='hidden'; return false; }
   function closeLb(e){ if(e) e.stopPropagation(); document.getElementById('lb').hidden=true; document.body.style.overflow=''; }
