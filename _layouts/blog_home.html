@@ -53,6 +53,14 @@
   footer{border-top:3px solid var(--line);}
   footer .in{max-width:1080px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
   footer a:hover{color:var(--red-d);}
+  .navbtns{display:flex;gap:10px;}
+  .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center;}
+  @media(max-width:680px){.hero-grid{grid-template-columns:1fr;gap:24px;}}
+  .photo{aspect-ratio:1;width:100%;background:var(--grid);border:3px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.7;overflow:hidden;}
+  .photo img{width:100%;height:100%;object-fit:cover;}
+  .about .intro{font-family:var(--head);font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 0;}
+  .about .intro .r{color:var(--red);}
+  .about .lede{color:var(--muted);font-size:15.5px;margin:18px 0 0;max-width:52ch;}
 </style>
 </head>
 <body>
@@ -60,13 +68,17 @@
 <header class="mast"><div class="in">
   <span class="id"><span class="sq"></span>u5er99 — 김상현</span>
   <span class="m">Seoul · KR<br>Blockchain / Security<br>Index 2025—26</span>
-  <a class="cvbtn" href="{{ '/cv/' | relative_url }}">CV</a>
+  <nav class="navbtns"><a class="cvbtn" href="{{ '/archives/' | relative_url }}">Archives</a><a class="cvbtn" href="{{ '/cv/' | relative_url }}">CV</a></nav>
 </div></header>
 
-<section class="hero"><div class="in">
-  <p class="eyebrow">Blog / 노트 №{{ site.posts | size }}</p>
-  <h1>노드를 <span class="r">짓고</span> 지키고, 코드에서 구멍을 <span class="r">찾는다</span>.</h1>
-  <div class="foot"><span>김상현 · <b>Kim SangHyeon</b></span><span>Validator · Infra · Security</span><span><b>{{ site.posts | size }}</b> entries</span></div>
+<section class="hero"><div class="in hero-grid">
+  <div class="photo"><span>PHOTO<br><small>사진 자리</small></span></div>
+  <div class="about">
+    <p class="eyebrow">About / 김상현</p>
+    <h1 class="intro">노드를 짓고 지키고,<br>코드에서 <span class="r">구멍을 찾는</span> 사람.</h1>
+    <p class="lede">안녕하세요, 김상현입니다. 블록체인 밸리데이터를 직접 운영하며 시스템·스마트컨트랙트 보안을 파고듭니다. 인프라와 보안 사이에서 배운 것들을 여기에 기록합니다.</p>
+    <div class="foot"><span>Kim SangHyeon</span><span>Validator · Infra · Security</span><span><b>{{ site.posts | size }}</b> entries</span></div>
+  </div>
 </div></section>
 
 <div class="wrap section">

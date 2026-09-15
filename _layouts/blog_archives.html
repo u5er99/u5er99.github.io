@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archives — u5er99</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{--bg:#FCFCFC; --ink:#0C0C0D; --muted:#6A6A6E; --faint:#A6A6AA; --line:#0C0C0D; --grid:#E6E6E8;
+    --red:#E62534; --red-d:#C11B29;
+    --head:"Gothic A1",ui-sans-serif,system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;}
+  *{box-sizing:border-box;}
+  html{color-scheme:light;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);font-weight:400;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .mast{border-bottom:3px solid var(--line);}
+  .mast .in{max-width:1000px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
+  .mast .id .sq{width:13px;height:13px;background:var(--red);}
+  .mast .back{font-family:var(--mono);font-size:12px;border:2px solid var(--ink);padding:8px 15px;text-transform:uppercase;}
+  .mast .back:hover{background:var(--ink);color:#fff;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px 70px;}
+  .title{border-bottom:3px solid var(--line);padding:46px 0 26px;}
+  .title .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red-d);}
+  .title h1{font-weight:900;font-size:clamp(40px,8vw,76px);line-height:.9;letter-spacing:-.03em;margin:12px 0 0;}
+  .title .sub{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;margin-top:10px;}
+  .yr{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--grid);}
+  @media(max-width:640px){.yr{grid-template-columns:1fr;gap:8px;}}
+  .yr .y{font-weight:900;font-size:40px;line-height:.9;color:var(--grid);}
+  .arow{display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--grid);}
+  .arow:last-child{border-bottom:none;}
+  .arow .d{font-family:var(--mono);font-size:12px;color:var(--faint);}
+  .arow .t{font-weight:700;font-size:17px;}
+  .arow:hover .t{color:var(--red-d);}
+  .arow .c{font-family:var(--mono);font-size:11px;color:var(--red-d);text-transform:uppercase;}
+  @media(max-width:560px){.arow{grid-template-columns:1fr;gap:2px;}.arow .c{display:none;}}
+  footer{border-top:3px solid var(--line);}
+  footer .in{max-width:1000px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in">
+  <span class="id"><span class="sq"></span>Archives</span>
+  <a class="back" href="{{ '/' | relative_url }}">← Blog</a>
+</div></header>
+<main class="wrap">
+  <div class="title"><div class="k">Index</div><h1>Archives</h1><div class="sub">전체 글 · {{ site.posts | size }} entries</div></div>
+  {% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in years %}
+  <div class="yr">
+    <div class="y">{{ year.name }}</div>
+    <div>
+      {% for post in year.items %}
+      <a class="arow" href="{{ post.url | relative_url }}">
+        <span class="d">{{ post.date | date: "%m.%d" }}</span>
+        <span class="t">{{ post.title }}</span>
+        <span class="c">{{ post.categories | join: " · " | downcase }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</main>
+<footer><div class="in"><span>© {{ site.time | date: "%Y" }} Kim SangHyeon</span><span><a href="{{ '/' | relative_url }}">← Blog</a> · <a href="{{ '/cv/' | relative_url }}">CV</a></span></div></footer>
+</body>
+</html>
