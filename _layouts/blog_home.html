@@ -55,10 +55,8 @@
   footer .in a{color:var(--red-d);font-weight:700;}
   footer .in a:hover{color:var(--ink);}
   footer .in .soc{display:flex;flex-wrap:wrap;align-items:center;}
-  footer .in .soc a{display:inline-flex;align-items:center;gap:6px;padding:0 15px;}
-  footer .in .soc a:first-child{padding-left:0;}
-  footer .in .soc a:last-child{padding-right:0;}
-  footer .in .soc a:not(:last-child){border-right:1px solid #C4C4C8;}
+  footer .in .soc a{display:inline-flex;align-items:center;gap:6px;}
+  footer .in .soc a:not(:last-child)::after{content:"/";margin:0 8px;color:#B4B4B8;font-weight:400;}
   footer .in .soc a svg{width:14px;height:14px;}
   .navbtns{display:flex;gap:10px;}
   .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center;}
