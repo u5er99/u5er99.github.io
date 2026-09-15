@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV — 김상현 (Kim SangHyeon)</title>
+<meta name="description" content="김상현 이력 · 블록체인 밸리데이터/인프라 · 시스템·스마트컨트랙트 보안">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{--bg:#FCFCFC; --ink:#0C0C0D; --muted:#6A6A6E; --faint:#A6A6AA; --line:#0C0C0D; --grid:#E6E6E8;
+    --red:#E62534; --red-d:#C11B29;
+    --head:"Gothic A1",ui-sans-serif,system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;}
+  *{box-sizing:border-box;}
+  html{color-scheme:light;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .mast{border-bottom:3px solid var(--line);}
+  .mast .in{max-width:900px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
+  .mast .id .sq{width:13px;height:13px;background:var(--red);}
+  .mast .back{font-family:var(--mono);font-size:12px;border:2px solid var(--ink);padding:8px 15px;text-transform:uppercase;}
+  .mast .back:hover{background:var(--ink);color:#fff;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px 70px;}
+  .title{border-bottom:3px solid var(--line);padding:46px 0 26px;}
+  .title .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red-d);}
+  .title h1{font-weight:900;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:-.03em;margin:12px 0 8px;}
+  .title .sub{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .grp{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--grid);}
+  @media(max-width:640px){.grp{grid-template-columns:1fr;gap:8px;}}
+  .grp .h{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--red-d);}
+  .row{margin-bottom:16px;}
+  .row:last-child{margin-bottom:0;}
+  .row .t{font-weight:800;font-size:16px;}
+  .row .d{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+  .row ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14px;}
+  .row ul li{margin:3px 0;}
+  .row ul li::marker{color:var(--red);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chips span{font-family:var(--mono);font-size:12px;border:1px solid var(--ink);padding:3px 9px;}
+  .contact a{font-family:var(--mono);font-size:13px;border-bottom:2px solid var(--red);padding-bottom:2px;margin-right:20px;display:inline-block;margin-bottom:6px;}
+  footer{padding:24px 0;font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="in">
+  <span class="id"><span class="sq"></span>CV — 김상현</span>
+  <a class="back" href="/">← Blog</a>
+</div></header>
+
+<main class="wrap">
+  <div class="title">
+    <div class="k">Curriculum Vitae</div>
+    <h1>김상현</h1>
+    <div class="sub">Kim SangHyeon · Blockchain Validator / Infra · System·Contract Security</div>
+  </div>
+
+  <div class="grp">
+    <div class="h">경력<br>Experience</div>
+    <div>
+      <div class="row">
+        <div class="t">블록체인 밸리데이터 · 인프라 엔지니어</div>
+        <div class="d">Anam145 · 인프라팀 · 2026.05 — 현재</div>
+        <ul>
+          <li>멀티체인(Kaia 거버넌스 카운슬 · Avalanche · Celestia) 노드 구축·운영·모니터링 단독 담당</li>
+          <li>OVH 베어메탈 도입, RHEL·RAID 5, SSH·방화벽·FIDO 하드웨어 키 하드닝</li>
+          <li>Prometheus·Grafana 대시보드 + Slack·Discord·Telegram 다중 채널 알림 자동화, runbook 문서화</li>
+          <li>AWS 점프서버(EIP·AZ 이중화)로 직접 노출 차단·단일 진입점 접근 통제</li>
+          <li>하드포크 대응 프로세스 정립 — 재동기화 5일 → 4시간 단축</li>
+          <li>밸리데이터 NodeID 재사용 취약점 발견·재현 후 키 로테이션 대응 수립</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="t">육군 정보보호병 · 보안 관제</div>
+        <div class="d">국방통합데이터센터</div>
+        <ul><li>IPS·WAF·IDS 패킷 분석, 악성 메일·IP 차단, 보안 로그 기반 실시간 위협 대응</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="h">보안·프로젝트<br>Security</div>
+    <div>
+      <div class="row"><div class="t">Funarchy — 예측시장 보안 가이드 (팀장)</div><div class="d">Upside Academy · 버그바운티 $1,000 · .HACK 발표</div>
+        <ul><li>Polymarket·Opinion 위협 모델링, Opinion에서 Integer Overflow로 거래를 차단하는 취약점 발견 → PoC 제작·제보</li></ul></div>
+      <div class="row"><div class="t">소프트웨어보안 — 바이너리 익스플로잇</div>
+        <ul><li>버퍼 오버플로우·셸코드 RCE·레이스 컨디션·정수 언더플로우·OOB Write·포맷 스트링 (pwntools/gdb/IDA·Ghidra)</li></ul></div>
+      <div class="row"><div class="t">LLM Auditor(Web2·Web3) · 우리콘 AI 에이전트</div><div class="d">진행 중 · codex exec 기반 취약점 헌팅 자동화</div></div>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="h">기술<br>Stack</div>
+    <div class="chips"><span>Linux/RHEL</span><span>AWS(EC2·VPC·EIP)</span><span>OVH Bare Metal</span><span>Prometheus</span><span>Grafana</span><span>Solidity</span><span>pwntools</span><span>gdb</span><span>IDA/Ghidra</span><span>Python</span><span>C</span><span>Git</span></div>
+  </div>
+
+  <div class="grp">
+    <div class="h">교육<br>Education</div>
+    <div>
+      <div class="row"><div class="t">고려대학교 스마트보안학부</div><div class="d">인공지능보안 · 빅데이터보안</div></div>
+      <div class="row"><div class="t">Cykor 해킹 동아리 · 42 Seoul · Upside Academy</div><div class="d">pwn(Heap·RTL·ROP)·CTF · 개발자 양성 · Web3 보안</div></div>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="h">연락<br>Contact</div>
+    <div class="contact">
+      <a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a>
+      <a href="https://github.com/u5er99">github.com/u5er99</a>
+      <a href="https://x.com/u5er_99">@u5er_99</a>
+    </div>
+  </div>
+
+  <footer><span>© 2026 Kim SangHyeon</span><span><a href="/">← Blog</a></span></footer>
+</main>
+</body>
+</html>

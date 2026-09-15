@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title | default: "u5er99" }} — 김상현</title>
+<meta name="description" content="블록체인 인프라와 보안에 관한 기록 · 김상현">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{--bg:#FCFCFC; --ink:#0C0C0D; --muted:#6A6A6E; --faint:#A6A6AA; --line:#0C0C0D; --grid:#E6E6E8;
+    --red:#E62534; --red-d:#C11B29;
+    --head:"Gothic A1",ui-sans-serif,system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;}
+  *{box-sizing:border-box;}
+  html{color-scheme:light;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);font-weight:400;font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .mast{border-bottom:3px solid var(--line);}
+  .mast .in{max-width:1080px;margin:0 auto;padding:20px 28px;display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;}
+  .mast .id{font-family:var(--head);font-weight:900;font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
+  .mast .id .sq{width:14px;height:14px;background:var(--red);}
+  .mast .m{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:right;line-height:1.5;}
+  .mast .cvbtn{font-family:var(--mono);font-size:12px;border:2px solid var(--ink);background:none;color:var(--ink);padding:8px 15px;cursor:pointer;text-transform:uppercase;}
+  .mast .cvbtn:hover{background:var(--red);border-color:var(--red);color:#fff;}
+  @media(max-width:680px){.mast .m{display:none;}}
+  .hero{border-bottom:3px solid var(--line);}
+  .hero .in{max-width:1080px;margin:0 auto;padding:52px 28px 46px;}
+  .hero .eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--red-d);margin:0 0 22px;}
+  .hero h1{font-family:var(--head);font-weight:900;font-size:clamp(44px,8.5vw,104px);line-height:.92;letter-spacing:-.03em;margin:0;max-width:14ch;}
+  .hero h1 .r{color:var(--red);}
+  .hero .foot{margin-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .hero .foot b{color:var(--ink);}
+  .section{display:grid;grid-template-columns:64px 1fr;}
+  @media(max-width:680px){.section{grid-template-columns:1fr;}}
+  .vlabel{border-right:1px solid var(--grid);display:flex;align-items:flex-start;justify-content:center;padding-top:26px;}
+  .vlabel span{writing-mode:vertical-rl;font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);}
+  @media(max-width:680px){.vlabel{border-right:none;border-bottom:1px solid var(--grid);padding:8px 0;}.vlabel span{writing-mode:horizontal-tb;}}
+  .item{display:grid;grid-template-columns:120px 1fr 130px;gap:20px;padding:30px 28px;border-bottom:1px solid var(--grid);align-items:start;transition:background .15s;}
+  .item:hover{background:#fff;}
+  @media(max-width:760px){.item{grid-template-columns:1fr;gap:8px;padding:24px 20px;}}
+  .item .no{font-family:var(--head);font-weight:900;font-size:52px;line-height:.8;color:var(--ink);}
+  .item:hover .no{color:var(--red);}
+  .item h2{font-family:var(--head);font-weight:800;font-size:clamp(24px,3.6vw,34px);line-height:1.06;letter-spacing:-.02em;margin:0 0 8px;}
+  .item:hover h2{color:var(--red-d);}
+  .item p{color:var(--muted);font-size:14px;margin:0;max-width:52ch;}
+  .item .rt{font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase;text-align:right;letter-spacing:.06em;line-height:1.7;}
+  .item .rt .c{color:var(--red-d);display:block;}
+  @media(max-width:760px){.item .rt{text-align:left;}}
+  footer{border-top:3px solid var(--line);}
+  footer .in{max-width:1080px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  footer a:hover{color:var(--red-d);}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="in">
+  <span class="id"><span class="sq"></span>u5er99 — 김상현</span>
+  <span class="m">Seoul · KR<br>Blockchain / Security<br>Index 2025—26</span>
+  <a class="cvbtn" href="{{ '/cv/' | relative_url }}">CV</a>
+</div></header>
+
+<section class="hero"><div class="in">
+  <p class="eyebrow">Blog / 노트 №{{ site.posts | size }}</p>
+  <h1>노드를 <span class="r">짓고</span> 지키고, 코드에서 구멍을 <span class="r">찾는다</span>.</h1>
+  <div class="foot"><span>김상현 · <b>Kim SangHyeon</b></span><span>Validator · Infra · Security</span><span><b>{{ site.posts | size }}</b> entries</span></div>
+</div></section>
+
+<div class="wrap section">
+  <div class="vlabel"><span>Writing</span></div>
+  <div class="items">
+    {% for post in site.posts %}
+    <a class="item" href="{{ post.url | relative_url }}" style="display:grid;">
+      <span class="no">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 84 }}</p>
+      </div>
+      <span class="rt">{{ post.date | date: "%Y.%m.%d" }}{% if post.categories.size > 0 %}<span class="c">{{ post.categories | join: " · " | downcase }}</span>{% endif %}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<footer><div class="in">
+  <span>© {{ site.time | date: "%Y" }} Kim SangHyeon</span>
+  <span><a href="https://github.com/u5er99">GitHub</a> · <a href="https://x.com/u5er_99">X</a> · <a href="mailto:tkdgusrns456@korea.ac.kr">Email</a></span>
+  <span>Seoul · Grid 1080</span>
+</div></footer>
+
+</body>
+</html>
