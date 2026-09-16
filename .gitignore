@@ -24,3 +24,11 @@ package-lock.json
 
 # Misc
 assets/docs/Jeseong_Ryu_resume.pdf
+
+# personal / reference files (do not deploy)
+.DS_Store
+**/.DS_Store
+*.bak
+assets/docs/donghyun-ahn-cv-ko.pdf
+assets/docs/resume_kor.pdf
+assets/docs/한화_web3_조사.md
