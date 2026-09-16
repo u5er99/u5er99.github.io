@@ -20,7 +20,8 @@
   .mast .id{font-weight:900;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
   .mast .id .sq{width:13px;height:13px;background:var(--red);}
   .mast .back{font-family:var(--mono);font-size:12px;border:2px solid var(--ink);padding:8px 15px;text-transform:uppercase;}
-  .mast .back:hover{background:var(--ink);color:#fff;}
+  .mast .back:hover{background:var(--red-d);border-color:var(--red-d);color:#fff;}
+  .mast .navb{display:flex;gap:9px;}
   .wrap{max-width:1000px;margin:0 auto;padding:0 28px 70px;}
   .title{border-bottom:3px solid var(--line);padding:46px 0 26px;}
   .title .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red-d);}
@@ -45,7 +46,7 @@
 <body>
 <header class="mast"><div class="in">
   <span class="id"><span class="sq"></span>Archives</span>
-  <a class="back" href="{{ '/' | relative_url }}">← Blog</a>
+  <nav class="navb"><a class="back" href="{{ '/' | relative_url }}">← Blog</a><a class="back" href="{{ '/cv/' | relative_url }}">CV</a></nav>
 </div></header>
 <main class="wrap">
   <div class="title"><div class="k">Index</div><h1>Archives</h1><div class="sub">전체 글 · {{ site.posts | size }} entries</div></div>

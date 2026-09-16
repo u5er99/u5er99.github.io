@@ -20,7 +20,8 @@
   .mast .id{font-family:var(--head);font-weight:900;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;}
   .mast .id .sq{width:12px;height:12px;background:var(--red);}
   .mast .back{font-family:var(--sm);font-size:12px;border:2px solid var(--ink);padding:7px 14px;text-transform:uppercase;text-decoration:none;color:var(--ink);}
-  .mast .back:hover{background:var(--ink);color:#fff;}
+  .mast .back:hover{background:var(--red-d);border-color:var(--red-d);color:#fff;}
+  .mast .navb{display:flex;gap:9px;}
   .head{max-width:760px;margin:0 auto;padding:46px 26px 26px;border-bottom:3px solid var(--line);}
   .head .cat{font-family:var(--sm);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-d);margin:0 0 14px;}
   .head h1{font-family:var(--head);font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 14px;}
@@ -59,7 +60,7 @@
 <body>
 <header class="mast"><div class="in">
   <a class="id" href="{{ '/' | relative_url }}"><span class="sq"></span>u5er99</a>
-  <a class="back" href="{{ '/' | relative_url }}">← Blog</a>
+  <nav class="navb"><a class="back" href="{{ '/' | relative_url }}">← Blog</a><a class="back" href="{{ '/archives/' | relative_url }}">Archives</a><a class="back" href="{{ '/cv/' | relative_url }}">CV</a></nav>
 </div></header>
 
 <div class="head">
