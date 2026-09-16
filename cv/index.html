@@ -138,6 +138,7 @@
     .print-head .ph-name .ph-ko{font-weight:700;font-size:14pt;color:#333;}
     .print-head .ph-title{font-size:9.5pt;color:#555;margin-top:5px;}
     .print-head .ph-contact{font-family:var(--mono);font-size:8pt;color:#444;margin-top:7px;}
+    .print-head .ph-contact a{color:var(--red-d);}
 
     /* ---- body ---- */
     .cv{grid-template-columns:1fr;gap:0;padding:0;}
@@ -157,7 +158,8 @@
     .ent-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
     .ent .role{font-size:10pt;font-weight:700;color:#000;}
     .ent .org{color:#000;font-weight:400;font-style:italic;}
-    .ent .org a{color:#000;border-bottom:none;font-style:italic;}
+    .ent .org a{color:var(--red-d);border-bottom:none;font-style:italic;}
+    .ent a.src{color:var(--red-d);border-bottom:none;font-style:italic;}
     .ent .date{font-family:var(--head);font-weight:400;font-size:9pt;font-style:italic;color:#333;text-transform:none;letter-spacing:0;}
     .ent .place{font-family:var(--head);font-style:italic;font-size:9pt;color:#555;text-transform:none;letter-spacing:0;margin-top:1px;}
     .ent ul{margin-top:3px;padding-left:14px;}
@@ -184,7 +186,7 @@
 <div class="print-head" aria-hidden="true">
   <div class="ph-name">Kim Sanghyeon <span class="ph-ko">김상현</span></div>
   <div class="ph-title">Blockchain Validator · Infrastructure · Smart-contract Security</div>
-  <div class="ph-contact">tkdgusrns456@korea.ac.kr&nbsp;·&nbsp;Seoul, KR&nbsp;·&nbsp;github.com/u5er99&nbsp;·&nbsp;linkedin.com/in/kimsh-&nbsp;·&nbsp;x.com/u5er_99</div>
+  <div class="ph-contact"><a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a>&nbsp;·&nbsp;Seoul, KR&nbsp;·&nbsp;<a href="https://github.com/u5er99">github.com/u5er99</a>&nbsp;·&nbsp;<a href="https://www.linkedin.com/in/kimsh-">linkedin.com/in/kimsh-</a>&nbsp;·&nbsp;<a href="https://x.com/u5er_99">x.com/u5er_99</a></div>
 </div>
 
 <header class="mast"><div class="in">
@@ -325,7 +327,7 @@
           <div><span class="role"><span class="en">Prediction-Market Security Guide · Lead</span><span class="ko">예측시장 보안 가이드 · 팀장</span></span> <span class="org">- Upside Academy</span></div>
           <span class="date">2025.08 - 2026.04</span>
         </div>
-        <div class="place pweb"><a class="src" href="https://funarchy.gitbook.io/funarchy"><span class="en">Read the security guide</span><span class="ko">보안 가이드 문서 보기</span></a></div>
+        <div class="place"><a class="src" href="https://funarchy.gitbook.io/funarchy">funarchy.gitbook.io</a></div>
         <ul>
           <li><span class="en"><b>Led the team.</b> Threat-modeled prediction-market protocols - <b>21 vulnerability patterns across 5 security domains</b>, assessing <b>9 live protocols</b> (Polymarket, Opinion, ...).</span><span class="ko"><b>팀장으로 리드.</b> Web3 예측시장 프로토콜을 대상으로 위협 모델링 - <b>5개 보안 영역 × 21종 취약점 패턴</b> 정리, 실제 프로토콜 <b>9종</b>(Polymarket·Opinion 등) 진단</span></li>
           <li><span class="en">Found an <b>integer-overflow vulnerability in Opinion's settlement</b> that could block a specific user's trades → PoC · report → <b>$1,000 bug bounty</b>.</span><span class="ko">Opinion 정산의 <b>Integer Overflow로 특정 사용자 거래를 차단하는 취약점 발견</b> → PoC·제보 → 버그바운티 <b>$1,000</b></span></li>
