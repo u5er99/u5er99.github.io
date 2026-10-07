@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV - Kim Sanghyeon (김상현)</title>
-<meta name="description" content="Kim Sanghyeon · Blockchain Validator / Infra · Smart-contract Security">
-<script>try{var l=localStorage.getItem('cvlang');document.documentElement.setAttribute('data-lang',l==='ko'?'ko':'en');}catch(e){document.documentElement.setAttribute('data-lang','en');}</script>
+<meta name="description" content="Kim Sanghyeon · Blockchain Node Operations · Infrastructure">
+<script>try{var p=new URLSearchParams(location.search).get('lang');var l=p==='ko'||p==='en'?p:localStorage.getItem('cvlang');document.documentElement.setAttribute('data-lang',l==='ko'?'ko':'en');}catch(e){document.documentElement.setAttribute('data-lang','en');}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap">
@@ -34,6 +34,8 @@
   .title h1{font-weight:900;font-size:clamp(44px,8.5vw,86px);line-height:.92;letter-spacing:-.03em;margin:0 0 8px;}
   .title h1 .r{color:var(--red);}
   .title .sub{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.05em;}
+  .title .contact{font-family:var(--mono);font-size:12px;color:var(--sec);margin-top:10px;}
+  .title .contact a{color:var(--red-d);font-weight:700;}
   .title-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:22px;flex-wrap:wrap;}
   .title-foot .lede{margin:0;flex:1 1 420px;font-size:16px;color:var(--muted);line-height:1.6;}
   .title-foot .lede b{color:var(--ink);font-weight:700;}
@@ -45,9 +47,9 @@
   .dl{position:relative;}
   .dl-menu{position:absolute;right:0;top:calc(100% + 5px);background:var(--bg);border:2px solid var(--ink);display:flex;flex-direction:column;z-index:30;min-width:130px;}
   .dl-menu[hidden]{display:none;}
-  .dl-menu button{font-family:var(--mono);font-weight:700;font-size:12px;padding:10px 13px;text-align:left;background:none;border:none;cursor:pointer;text-transform:uppercase;color:var(--ink);}
-  .dl-menu button + button{border-top:1px solid var(--grid);}
-  .dl-menu button:hover{background:var(--red-d);color:#fff;}
+  .dl-menu a{font-family:var(--mono);font-weight:700;font-size:12px;padding:10px 13px;text-align:left;text-transform:uppercase;color:var(--ink);}
+  .dl-menu a + a{border-top:1px solid var(--grid);}
+  .dl-menu a:hover{background:var(--red-d);color:#fff;}
 
   /* layout: sticky index + body */
   .cv{max-width:1040px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:170px 1fr;gap:52px;align-items:start;}
@@ -126,7 +128,7 @@
 
   .print-head,.print-only{display:none;}
   @media print{
-    @page{margin:14mm 16mm;}
+    @page{size:A4;margin:14mm 16mm;}
     .mast,.idx,footer,.title,.lb,.pweb{display:none!important;}
     html{scroll-behavior:auto;}
     body{font-size:9.8pt;line-height:1.42;color:#1a1a1a;font-family:var(--head);}
@@ -175,7 +177,8 @@
     .kv .kk{font-family:var(--head);font-weight:700;font-size:9.3pt;color:#000;text-transform:none;letter-spacing:0;padding-top:0;}
     .kv .vv{font-size:9.3pt;color:#222;}
 
-    .sec,.ent{page-break-inside:avoid;}
+    .sec-h{break-after:avoid;}
+    .ent{break-inside:avoid;}
     a{color:inherit;text-decoration:none;}
     .ent .org a::after,.ent a.src::after,.ent a.src.lbtrig::after{content:"";}
   }
@@ -185,8 +188,8 @@
 
 <div class="print-head" aria-hidden="true">
   <div class="ph-name">Kim Sanghyeon <span class="ph-ko">김상현</span></div>
-  <div class="ph-title">Blockchain Validator · Infrastructure · Smart-contract Security</div>
-  <div class="ph-contact"><a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a>&nbsp;·&nbsp;Seoul, KR&nbsp;·&nbsp;<a href="https://github.com/u5er99">github.com/u5er99</a>&nbsp;·&nbsp;<a href="https://www.linkedin.com/in/kimsh-">linkedin.com/in/kimsh-</a>&nbsp;·&nbsp;<a href="https://x.com/u5er_99">x.com/u5er_99</a></div>
+  <div class="ph-title">Blockchain Node Operations · Infrastructure</div>
+  <div class="ph-contact"><a href="tel:+821099182862">010-9918-2862</a>&nbsp;·&nbsp;<a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a>&nbsp;·&nbsp;Seoul, KR&nbsp;·&nbsp;<a href="https://github.com/u5er99">github.com/u5er99</a></div>
 </div>
 
 <header class="mast"><div class="in">
@@ -196,16 +199,17 @@
 
 <section class="title">
   <h1><span class="en">Kim Sanghyeon</span><span class="ko">김상현</span><span class="r">.</span></h1>
-  <div class="sub"><span class="en">Blockchain Validator · Infra · Smart-contract Security</span><span class="ko">블록체인 밸리데이터 · 인프라 · 스마트컨트랙트 보안</span></div>
+  <div class="sub"><span class="en">Blockchain Node Operations · Infrastructure</span><span class="ko">블록체인 노드 운영 · 인프라</span></div>
+  <div class="contact"><a href="tel:+821099182862">010-9918-2862</a> · <a href="mailto:tkdgusrns456@korea.ac.kr">tkdgusrns456@korea.ac.kr</a></div>
   <div class="title-foot">
-    <p class="lede"><span class="en">Interested in <b>RWA tokenization</b>, blockchain infrastructure, and smart-contract security.</span><span class="ko"><b>RWA(실물자산 토큰화)</b>와 블록체인 인프라, 스마트컨트랙트 보안에 관심을 둡니다.</span></p>
+    <p class="lede"><span class="en">I operate <b>multi-chain validators</b> and build monitoring and access controls for reliable blockchain infrastructure.</span><span class="ko"><b>멀티체인 밸리데이터</b>를 운영하며 안정적인 블록체인 인프라를 위한 모니터링과 접근 통제를 구축합니다.</span></p>
     <div class="acts">
       <button class="btn lang" id="langBtn" onclick="toggleLang()">한국어</button>
       <div class="dl">
         <button class="btn pdf" onclick="toggleDl(event)">Download ↓</button>
         <div class="dl-menu" id="dlMenu" hidden>
-          <button onclick="dlCV('en')">English PDF</button>
-          <button onclick="dlCV('ko')">한글 PDF</button>
+          <a href="/assets/docs/kim-sanghyeon-cv-en.pdf" download>English PDF</a>
+          <a href="/assets/docs/kim-sanghyeon-cv-ko.pdf" download>한글 PDF</a>
         </div>
       </div>
     </div>
@@ -219,13 +223,14 @@
     <div class="nav">
       <a href="#skill"><span class="n">01</span><span class="en">Expertise</span><span class="ko">전문분야</span></a>
       <a href="#exp"><span class="n">02</span><span class="en">Experience</span><span class="ko">경력</span></a>
-      <a href="#pub"><span class="n">03</span><span class="en">Publications</span><span class="ko">논문·발표</span></a>
+      <a href="#pub"><span class="n">03</span><span class="en">Talk</span><span class="ko">발표</span></a>
       <a href="#proj"><span class="n">04</span><span class="en">Projects</span><span class="ko">프로젝트</span></a>
       <a href="#act"><span class="n">05</span><span class="en">Activities</span><span class="ko">활동·교육</span></a>
       <a href="#edu"><span class="n">06</span><span class="en">Education</span><span class="ko">학력</span></a>
     </div>
     <div class="ct">
       <div class="lbl">Contact</div>
+      <a href="tel:+821099182862">Phone · 010-9918-2862</a>
       <a href="mailto:tkdgusrns456@korea.ac.kr"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>Email</a>
       <a href="https://github.com/u5er99"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.13-.29-.52-1.46.1-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.82 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.24 2.76.12 3.05.75.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></span>GitHub</a>
       <a href="https://www.linkedin.com/in/kimsh-"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.2.8 24 1.77 24h20.45c.98 0 1.78-.8 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg></span>LinkedIn</a>
@@ -238,12 +243,12 @@
 
     <section class="sec print-only" id="summary">
       <div class="sec-h"><span class="n">00</span><h2><span class="en">Summary</span><span class="ko">요약</span></h2></div>
-      <p class="summary"><span class="en">Blockchain validator and infrastructure engineer running multi-chain nodes (Avalanche · Celestia · Kaia) solo. Researches smart-contract security and RWA tokenization — found a settlement integer-overflow in a prediction market (<b>$1,000 bounty</b>) and co-authored a survey on PQC migration for Ethereum smart contracts.</span><span class="ko">멀티체인 밸리데이터·인프라(아발란체 · Celestia · Kaia)를 단독 운영하는 엔지니어. 스마트컨트랙트 보안과 RWA 토큰화를 연구하며, 예측시장 정산 로직의 Integer Overflow 취약점을 발견하고(<b>$1,000 바운티</b>) 이더리움 PQC 전환에 관한 서베이 논문을 공저했습니다.</span></p>
+      <p class="summary"><span class="en">Blockchain infrastructure engineer operating Kaia, Avalanche, and Celestia validators. Built an AWS jump server for controlled access and Prometheus/Grafana monitoring with multi-channel alerts. Also researched smart-contract security and reported a prediction-market vulnerability (<b>$1,000 bounty</b>).</span><span class="ko">Kaia·Avalanche·Celestia 밸리데이터를 운영하는 블록체인 인프라 엔지니어. 접근 통제를 위한 AWS 점프 서버와 다중 채널 알림을 갖춘 Prometheus·Grafana 모니터링을 구축했습니다. 스마트컨트랙트 보안 연구로 예측시장 취약점을 제보해 <b>$1,000 바운티</b>를 받았습니다.</span></p>
     </section>
 
     <section class="sec" id="skill">
       <div class="sec-h"><span class="n">01</span><h2><span class="en">Expertise</span><span class="ko">전문 분야 · 기술</span></h2></div>
-      <div class="kv"><div class="kk"><span class="en">Focus</span><span class="ko">관심 분야</span></div><div class="vv"><span class="en">RWA tokenization · Blockchain infrastructure · Smart-contract security</span><span class="ko">RWA 토큰화 · 블록체인 인프라 · 스마트컨트랙트 보안</span></div></div>
+      <div class="kv"><div class="kk"><span class="en">Focus</span><span class="ko">관심 분야</span></div><div class="vv"><span class="en">Blockchain node operations · Infrastructure monitoring · Smart-contract security</span><span class="ko">블록체인 노드 운영 · 인프라 모니터링 · 스마트컨트랙트 보안</span></div></div>
       <div class="kv"><div class="kk">Infra</div><div class="vv">Linux/RHEL · AWS (EC2·VPC·EIP) · OVH Bare Metal · Prometheus · Grafana · RAID</div></div>
       <div class="kv"><div class="kk">Security</div><div class="vv">Solidity · Foundry · pwntools · gdb · IDA/Ghidra · Threat Modeling</div></div>
       <div class="kv"><div class="kk">Lang</div><div class="vv">Python · C · Solidity · Git</div></div>
@@ -284,18 +289,7 @@
     </section>
 
     <section class="sec" id="pub">
-      <div class="sec-h"><span class="n">03</span><h2><span class="en">Publications</span><span class="ko">논문 · 발표</span></h2></div>
-
-      <div class="ent">
-        <div class="ent-top">
-          <div><span class="role"><span class="en">Structural Limits of PQC Migration in Ethereum Smart Contracts</span><span class="ko">이더리움 스마트 컨트랙트 환경에서의 PQC 전환 구조적 한계</span></span> <span class="org">- <a href="https://di0zxmb8pwajl.cloudfront.net/kiisc/conference/ciscs2026/ciscs2026-programbook-0507.pdf">CISC-S'26</a></span></div>
-          <span class="date">2026.01 - 2026.05</span>
-        </div>
-        <div class="place"><span class="en">Survey paper · Co-author</span><span class="ko">서베이 논문 · 공저</span></div>
-        <ul>
-          <li><span class="en">A survey analyzing the structural constraints of migrating Ethereum smart-contract environments to <b>post-quantum cryptography (PQC)</b>.</span><span class="ko">이더리움 스마트 컨트랙트 환경에서 <b>양자내성암호(PQC)</b>로 전환할 때의 구조적 제약을 조사·분석한 서베이 논문</span></li>
-        </ul>
-      </div>
+      <div class="sec-h"><span class="n">03</span><h2><span class="en">Talk</span><span class="ko">발표</span></h2></div>
 
       <div class="ent">
         <div class="ent-top">
@@ -354,15 +348,11 @@
       <div class="ent">
         <div class="ent-top"><div><span class="role"><span class="en">Cykor Hacking Club · Member</span><span class="ko">Cykor 해킹 동아리 · 정회원</span></span> <span class="org">- <span class="en">Korea University</span><span class="ko">고려대학교</span></span></div><span class="date">2021.03 - 2022.07</span></div>
         <ul>
-          <li><span class="en">Studied systems/web/crypto and pwnable techniques (<b>Heap · RTL · ROP</b>); found vulnerabilities via static/dynamic analysis and IDA/Ghidra reversing in CTFs.</span><span class="ko">시스템·웹·암호학 연구, <b>Heap · RTL · ROP</b> 등 pwnable 공격기법, CTF 참가 시 정적·동적 분석과 IDA·Ghidra 리버싱으로 취약점 발견</span></li>
-          <li><span class="en"><b>Taught RTL · ROP · Heap</b> to junior cohorts.</span><span class="ko"><b>후배 기수 대상 RTL · ROP · Heap 강의</b> 진행</span></li>
+          <li><span class="en">Studied systems/web/crypto and pwnable techniques (<b>RTL · ROP</b>); found vulnerabilities via static/dynamic analysis and IDA/Ghidra reversing in CTFs.</span><span class="ko">시스템·웹·암호학 연구, <b>RTL · ROP</b> 등 pwnable 공격기법, CTF 참가 시 정적·동적 분석과 IDA·Ghidra 리버싱으로 취약점 발견</span></li>
+          <li><span class="en"><b>Taught RTL · ROP</b> to junior cohorts.</span><span class="ko"><b>후배 기수 대상 RTL · ROP 강의</b> 진행</span></li>
         </ul>
       </div>
 
-      <div class="ent">
-        <div class="ent-top"><div><span class="role">42 Seoul</span> <span class="org">- <a href="https://42seoul.kr"><span class="en">Developer Program</span><span class="ko">개발자 양성</span></a></span></div><span class="date">2021.07 - 2022.06</span></div>
-        <ul><li><span class="en">Project-based learning (C and more), open-source contributions, self-directed collaboration through the Slack community.</span><span class="ko">프로젝트 중심 학습(C 등 다양한 언어·기술), 오픈소스 기여, Slack 커뮤니티 기반 자기주도 협업·네트워킹</span></li></ul>
-      </div>
     </section>
 
     <section class="sec" id="edu">
@@ -398,13 +388,6 @@
     document.getElementById('langBtn').textContent = cur==='ko' ? 'EN' : '한국어';})();
 
   function toggleDl(e){ if(e) e.stopPropagation(); var m=document.getElementById('dlMenu'); m.hidden=!m.hidden; }
-  function dlCV(lang){
-    var h=document.documentElement; h.setAttribute('data-lang', lang);
-    try{localStorage.setItem('cvlang', lang);}catch(e){}
-    document.getElementById('langBtn').textContent = lang==='ko' ? 'EN' : '한국어';
-    document.getElementById('dlMenu').hidden = true;
-    setTimeout(function(){ window.print(); }, 150);
-  }
   document.addEventListener('click', function(){ var m=document.getElementById('dlMenu'); if(m) m.hidden=true; });
 
   function openLb(e){ if(e) e.preventDefault(); document.getElementById('lb').hidden=false; document.body.style.overflow='hidden'; return false; }
